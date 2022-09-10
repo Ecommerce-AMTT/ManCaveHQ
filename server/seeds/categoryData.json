@@ -1,22 +1,17 @@
 [
     {
-        "id": 1,
         "name": "Computer Monitors"
     },
     {
-        "id": 2,
         "name": "Computer Cables"
     },
     {
-        "id": 3,
         "name": "Bluetooth Equipment"
     },
     {
-        "id": 4,
         "name": "Keyboads"
     },
     {
-        "id": 5,
         "name": "Ergonomics"
     }
 ]
