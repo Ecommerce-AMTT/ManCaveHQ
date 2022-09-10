@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { validateEmail } from "../utils/helpers";
 import { Card, Container, Button } from "react-bootstrap";
-import { initReactI18next } from "react-i18next";
 
-export default function Contact() {
+export default function Contact({ t }) {
+  console.log("Contact.js  t = ", t);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -42,19 +42,11 @@ export default function Contact() {
     e.preventDefault();
   };
 
-  const onChangeLang = () => {
-    console.log("onChange lang called");
-  };
-
   return (
     <section className='container'>
       <h2 data-testid='h1tag' className='top-title'>
-        Contact Form
+        {t("contactForm")}
       </h2>
-      <select name='language' onChange={onChangeLang}>
-        <option value='en'></option>
-        <option value='fr'></option>
-      </select>
       <hr></hr>
       <form className='justify-content-center' id='contact-form'>
         <div className='mt-5'>
