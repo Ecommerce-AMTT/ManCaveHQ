@@ -99,12 +99,11 @@ export const QUERY_CATEGORIES = gql`
     }
   }
 `;
-
+//deleting firstName and lastName from user and adding userName
 export const QUERY_USER = gql`
   {
     user {
-      firstName
-      lastName
+      userName
       orders {
         _id
         purchaseDate
