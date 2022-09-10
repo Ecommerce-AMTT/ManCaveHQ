@@ -1,4 +1,5 @@
 import React from "react";
+import {Card, Button} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
@@ -40,20 +41,21 @@ function ProductItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
+    <Card className="px-2 py-2 m-3" style={{width: "18rem", background:
+      "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898"}}>
       <Link to={`/products/${_id}`}>
-        <img
+        <Card.Img
           alt={name}
           src={`/images/${image}`}
         />
-        <p>{name}</p>
+        <Card.Text>{name}</Card.Text>
       </Link>
       <div>
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
         <span>${price}</span>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
-    </div>
+      <Button className="button-85" onClick={addToCart}>Add to cart</Button>
+    </Card>
   );
 }
 
