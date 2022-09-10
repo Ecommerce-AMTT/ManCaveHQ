@@ -62,7 +62,7 @@ function App() {
 
   const onChangeLang = (e) => {
     i18n.changeLanguage(e.target.value);
-    console.log("onChange lang called", e.target.value);
+    console.log("onChange lang called lang = ", e.target.value);
     console.log("App.js t = ", t);
   };
 
