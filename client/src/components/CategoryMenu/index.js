@@ -44,7 +44,7 @@ function CategoryMenu() {
 
   return (
     <Container >
-      <h2>Choose a Category:</h2>
+      <h2 className="mb-2">Choose a Category:</h2>
       {categories.map((item) => (
         <Button className='m-1 button-85'
           key={item._id}

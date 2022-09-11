@@ -44,14 +44,15 @@ export default function Contact() {
     e.preventDefault();
   };
   return (
-    <section className="container">
+    <Container >
       <h2 data-testid="h1tag" className="top-title">
         Contact Form
       </h2>
       <hr></hr>
-      <form className="justify-content-center" id="contact-form">
+      <Container className="d-flex justify-content-center ">
+      <form id="contact-form">
         <div className="mt-5">
-          <label htmlFor="name">Name:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor="name">Name:</label>
           <input
             className="form-control"
             type="text"
@@ -61,7 +62,7 @@ export default function Contact() {
           />
         </div>
         <div className="mt-5">
-          <label htmlFor="email">Email Address:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor="email">Email Address:</label>
           <input
             className="form-control"
             type="email"
@@ -71,7 +72,7 @@ export default function Contact() {
           />
         </div>
         <div className="mt-5">
-          <label htmlFor="message">Message:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor="message">Message:</label>
           <textarea
             className="form-control"
             name="message"
@@ -98,6 +99,7 @@ export default function Contact() {
           </Button>
         </div>
       </form>
-    </section>
+      </Container>
+    </Container>
   );
 }

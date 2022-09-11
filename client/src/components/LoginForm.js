@@ -85,7 +85,7 @@ const LoginForm = () => {
 
         {/* login input field for password  */}
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label className='mt-2' htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -101,7 +101,7 @@ const LoginForm = () => {
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
-          className="button-85"
+          className="button-85 mt-3"
         >
           Submit
         </Button>

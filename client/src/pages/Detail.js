@@ -89,7 +89,7 @@ function Detail() {
 
           <Card className=' p-3 ' style={{width: '45rem', background:
       "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898"}}>
-          <Link className='m-1' to="/">← Back to Products</Link>
+          <Link className='m-1' style={{color: "black"}} to="/">← Back to Products</Link>
           <Card.Title style={{fontSize: '3rem'}}>{currentProduct.name}</Card.Title>
 
           <Card.Text>{currentProduct.description}</Card.Text>

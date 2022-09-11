@@ -63,7 +63,7 @@ const SignupForm = () => {
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form  noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -90,7 +90,7 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Label className='mt-2' htmlFor="email">Email</Form.Label>
           <Form.Control
             type="email"
             placeholder="Your email address"
@@ -105,7 +105,7 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label className='mt-2' htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -127,7 +127,7 @@ const SignupForm = () => {
             )
           }
           type="submit"
-          className="button-85"
+          className="button-85 mt-3"
         >
           Submit
         </Button>

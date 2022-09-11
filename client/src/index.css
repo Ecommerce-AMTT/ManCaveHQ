@@ -79,6 +79,10 @@ header a {
   color: var(--light);
 }
 
+.nav-pills .nav-link.active{
+  background-color: #111;
+}
+
 button {
   font-size: 1rem;
   text-decoration: none;
@@ -88,7 +92,7 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  background-color: rgb(187, 17, 17);
 }
 
 button:hover {

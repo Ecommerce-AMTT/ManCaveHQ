@@ -3,7 +3,7 @@ import { Card, Container } from "react-bootstrap";
 
 export default function About() {
   return (
-    <Container className="d-flex flex-wrap">
+    <Container className="d-flex flex-wrap justify-content-center align-content-center">
       <Card
         className="m-3 p-2"
         style={{
