@@ -94,9 +94,9 @@ function Detail() {
 
           <Card.Text>{currentProduct.description}</Card.Text>
 
-          <Card.Text>
+          <Card.Text className='detail-text'>
             <strong>Price:</strong>${currentProduct.price}{' '}
-            <Button className="button-85" onClick={addToCart}>Add to Cart</Button>
+            <Button className="button-85 m-2" onClick={addToCart}>Add to Cart</Button>
             <Button className="button-85"
               disabled={!cart.find((p) => p._id === currentProduct._id)}
               onClick={removeFromCart}
