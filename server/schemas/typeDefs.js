@@ -16,19 +16,14 @@ const typeDefs = gql`
     category: Category
   }
 
-  # type Product {
-  #   id: ID!
-  #   title: String!
-  #   description: String!
-  #   price: Int!
-  #   reviews: [Review]
-  #   discountPercentage: String
-  #   rating: String
-  #   brand: String
-  #   category: String
-  #   thumbnail: String
-  #   images: [String]
-  # }
+  type newProduct {
+    id: ID!
+    title: String!
+    description: String!
+    price: Int!
+    brand: String
+    thumbnail: String
+  }
 
   type Review {
     title: String
@@ -70,6 +65,8 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
+    newProducts: [newProduct]
+    newProduct(id: ID!): newProduct
   }
 
   type Mutation {

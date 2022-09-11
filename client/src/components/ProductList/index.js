@@ -3,7 +3,7 @@ import ProductItem from '../ProductItem';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_PRODUCTS, QUERY_ALL_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
@@ -12,41 +12,66 @@ function ProductList() {
 
   const { currentCategory } = state;
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const newProducts = useQuery(QUERY_ALL_PRODUCTS);
+  const { loading, data } = newProducts;
 
-  useEffect(() => {
-    if (data) {
-      dispatch({
-        type: UPDATE_PRODUCTS,
-        products: data.products,
-      });
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
-      });
-    } else if (!loading) {
-      idbPromise('products', 'get').then((products) => {
-        dispatch({
-          type: UPDATE_PRODUCTS,
-          products: products,
-        });
-      });
-    }
-  }, [data, loading, dispatch]);
+  async function getProducts() {
+    const queryData = await data;
+    console.log(queryData);
+    // return queryData.newProducts;
+    // queryData.forEach(product => {
+    //     console.log(product);
+    // });
+}
 
-  function filterProducts() {
-    if (!currentCategory) {
-      return state.products;
-    }
+async function renderProducts() {
+    const productArray = await getProducts();
+    productArray.forEach(product => {
+        console.log(product.id);
+    })
+}
 
-    return state.products.filter(
-      (product) => product.category._id === currentCategory
-    );
-  }
+getProducts();
+// renderProducts();
+
+
+
+  // const oldProducts = useQuery(QUERY_PRODUCTS);
+  // const { loading, data } = oldProducts;
+
+  // useEffect(() => {
+  //   if (data) {
+  //     dispatch({
+  //       type: UPDATE_PRODUCTS,
+  //       products: data.products,
+  //     });
+  //     data.products.forEach((product) => {
+  //       idbPromise('products', 'put', product);
+  //     });
+  //   } else if (!loading) {
+  //     idbPromise('products', 'get').then((products) => {
+  //       dispatch({
+  //         type: UPDATE_PRODUCTS,
+  //         products: products,
+  //       });
+  //     });
+  //   }
+  // }, [data, loading, dispatch]);
+
+  // function filterProducts() {
+  //   if (!currentCategory) {
+  //     return state.products;
+  //   }
+
+  //   return state.products.filter(
+  //     (product) => product.category._id === currentCategory
+  //   );
+  // }
 
   return (
     <div className="my-2">
       <h2>Our Products:</h2>
-      {state.products.length ? (
+      {/* {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
             <ProductItem
@@ -62,7 +87,7 @@ function ProductList() {
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? <img src={spinner} alt="loading" /> : null} */}
     </div>
   );
 }
