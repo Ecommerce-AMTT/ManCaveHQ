@@ -2,7 +2,7 @@
     {
         "description": "HP Computer Monitor",
         "price": 149.99,
-        "category": "Computer Monitors",
+        "category_name": "Computer Monitors",
         "rating": 4.69,
         "stock": 10,
         "tag": ["HP", "Monitor"],
@@ -11,7 +11,7 @@
     {
         "description": "Samsung Computer Monitor",
         "price": 319.99,
-        "category": "Computer Monitors",
+        "category_name": "Computer Monitors",
         "rating": 3.9,
         "stock": 110,
         "tag": ["Samsung", "Monitor"],
@@ -20,7 +20,7 @@
     {
         "description": "LG Computer Monitor",
         "price": 129.99,
-        "category": "Computer Monitors",
+        "category_name": "Computer Monitors",
         "rating": 4.80,
         "stock": 209,
         "tag": ["LG", "Monitor"],
@@ -29,7 +29,7 @@
     {
         "description": "Lenovo Computer Monitor",
         "price": 149.99,
-        "category": "Computer Monitors",
+        "category_name": "Computer Monitors",
         "rating": 4.69,
         "stock": 0,
         "tag": ["Lenovo", "Monitor"],
@@ -38,7 +38,7 @@
     {
         "description": "Sony Computer Monitor",
         "price": 149.99,
-        "category": "Computer Monitors",
+        "category_name": "Computer Monitors",
         "rating": 4.69,
         "stock": 22,
         "tag": ["HP", "Monitor"],
@@ -47,7 +47,7 @@
     {
         "description": "Insignia Ethernet Cable",
         "price": 15.99,
-        "category": "Computer Cables",
+        "category_name": "Computer Cables",
         "rating": 4.95,
         "tag": ["Insignia", "Ethernet", "Cables"],
         "reviews": "works perfectly"
@@ -55,7 +55,7 @@
     {
         "description": "AudioQuest HDMI Cable",
         "price": 79.95,
-        "category": "Computer Cables",
+        "category_name": "Computer Cables",
         "rating": 4.97,
         "stock": 33,
         "tag": ["AudioQuest", "HDMI", "Cables"],
@@ -64,7 +64,7 @@
     {
         "description": "Apple USB Type C to Lightning Charging Cable",
         "price": 29.00,
-        "category": "Computer Cables",
+        "category_name": "Computer Cables",
         "rating": 4.0,
         "stock": 150,
         "tag": ["Apple", "USB", "Cables"],
@@ -73,7 +73,7 @@
     {
         "description": "Best Buy Essentials 6' DisplayPort Cable",
         "price": 8.99,
-        "category": "Computer Cables",
+        "category_name": "Computer Cables",
         "rating": 4.90,
         "stock": 50,
         "tag": ["Best Buy", "DisplayPort", "Cables"],
@@ -82,7 +82,7 @@
     {
         "description": "Metra 17 Inch RCA Cable",
         "price": 12.99,
-        "category": "Computer Cables",
+        "category_name": "Computer Cables",
         "rating": 4.69,
         "stock": 79,
         "tag": ["Metra", "RCA", "Cables"],
@@ -91,7 +91,7 @@
     {
         "description": "BlueParrott Wireless Headset",
         "price": 169.99,
-        "category": "Bluetooth Equipment",
+        "category_name": "Bluetooth Equipment",
         "rating": 4.80,
         "stock": 199,
         "tag": ["Bluetooth", "BlueParrot", "Headset"],
@@ -100,7 +100,7 @@
     {
         "description": "Sony Digital Bluetooth Wireless Microphone",
         "price": 229.99,
-        "category": "Bluetooth Equipment",
+        "category_name": "Bluetooth Equipment",
         "rating": 4.44,
         "stock": 123,
         "tag": ["Bluetooth", "Sony", "Microphone"],
@@ -109,7 +109,7 @@
     {
         "description": "Bose SoundLink Flex Portable Speaker",
         "price": 149.99,
-        "category": "Bluetooth Equipment",
+        "category_name": "Bluetooth Equipment",
         "rating": 4.90,
         "stock": 45,
         "tag": ["Bluetooth", "Bose", "Waterproof"],
@@ -118,7 +118,7 @@
     {
         "description": "Logitech Anywhere 3 Wireless Mouse",
         "price": 79.99,
-        "category": "Bluetooth Equipment",
+        "category_name": "Bluetooth Equipment",
         "rating": 4.99,
         "stock": 300,
         "tag": ["Bluetooth", "Logitech", "Mouse"],
@@ -127,7 +127,7 @@
     {
         "description": "ASUS Bluetooth Smart Ready USB Adapter",
         "price": 17.99,
-        "category": "Bluetooth Equipment",
+        "category_name": "Bluetooth Equipment",
         "rating": 4.5,
         "stock": 12,
         "tag": ["Bluetooth", "ASUS"],
@@ -136,7 +136,7 @@
     {
         "description": "Microsoft Full Size Mechanical Keyboard",
         "price": 29.99,
-        "category": "Bluetooth Equipment",
+        "category_name": "Bluetooth Equipment",
         "rating": 4.13,
         "stock": 1,
         "tag": ["Microsoft", "Keyboard"],
@@ -145,7 +145,7 @@
     {
         "description": "Logitech MK850 Performance Full-size Keyboard",
         "price": 89.99,
-        "category": "Bluetooth Equipment",
+        "category_name": "Bluetooth Equipment",
         "rating": 4.5,
         "stock": 5,
         "tag": ["Logitech", "Keyboard"],
@@ -154,7 +154,7 @@
     {
         "description": "Razer BlackWidow V3 Pro Full Size Mechanical Keyboard",
         "price": 139.99,
-        "category": "Keyboads",
+        "category_name": "Keyboards",
         "rating": 4.20,
         "stock": 10,
         "tag": ["Razer", "Keyboard"],
@@ -163,7 +163,7 @@
     {
         "description": "HyperX Alloy Core Full Size Gaming RGB Lighting Keyboard",
         "price": 29.99,
-        "category": "Keyboads",
+        "category_name": "Keyboards",
         "rating": 4.80,
         "stock": 10,
         "tag": ["HyperX", "Gaming", "Keyboard"],
@@ -172,7 +172,7 @@
     {
         "description": "Apple MQ052LL/A Full Size Wireless Scissor Magic Keyboard",
         "price": 129.99,
-        "category": "Keyboads",
+        "category_name": "Keyboards",
         "rating": 4.94,
         "stock": 40,
         "tag": ["Apple", "Keyboard"],
@@ -181,7 +181,7 @@
     {
         "description": "Insignia Ergonomic Mesh Chair",
         "price": 249.99,
-        "category": "Ergonomics",
+        "category_name": "Ergonomics",
         "rating": 4.96,
         "stock": 50,
         "tag": ["Chair", "Ergonomics"],
@@ -190,7 +190,7 @@
     {
         "description": "Logitech ERGO M575 Mouse With Ergonomic Design",
         "price": 49.99,
-        "category": "Ergonomics",
+        "category_name": "Ergonomics",
         "rating": 4.94,
         "stock": 60,
         "tag": ["Logitech", "Mouse", "Ergonomics"],
@@ -199,7 +199,7 @@
     {
         "description": "Microsoft Sculpt Desktop Ergonomic Full Size Keyboard",
         "price": 99.99,
-        "category": "Ergonomics",
+        "category_name": "Ergonomics",
         "rating": 4.49,
         "stock": 90,
         "tag": ["Microsoft", "Keyboard", "Ergonomics"],
@@ -208,7 +208,7 @@
     {
         "description": "Insignia Ergnomic Laptop Stand - Silver",
         "price": 29.99,
-        "category": "Ergonomics",
+        "category_name": "Ergonomics",
         "rating": 4.90,
         "stock": 80,
         "tag": ["Laptop Stand", "Insignia", "Ergonomics"],
@@ -217,7 +217,7 @@
     {
         "description": "Razer Ergonomic Pro Wrist Rest",
         "price": 34.99,
-        "category": "Ergonomics",
+        "category_name": "Ergonomics",
         "rating": 4.97,
         "stock": 230,
         "tag": ["Razer", "Wrist Rest", "Ergonomics"],
