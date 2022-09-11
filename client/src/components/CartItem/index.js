@@ -59,7 +59,7 @@ const CartItem = ({ item }) => {
             aria-label="trash"
             onClick={() => removeFromCart(item)}
           >
-            🗑️
+            <i className="fa fa-trash trash" aria-hidden="true"></i>
           </span>
         </div>
       </div>

@@ -223,6 +223,15 @@ input:focus {
   touch-action: manipulation;
 }
 
+.trash {
+  cursor: pointer;
+}
+
+.trash:hover {
+  color: rgb(139, 42, 42);
+  text-decoration: underline;
+}
+
 .button-85:before {
   content: "";
   background: linear-gradient(
