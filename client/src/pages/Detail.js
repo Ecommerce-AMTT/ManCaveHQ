@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {Card, Container, Button} from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
@@ -84,29 +85,32 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+        <Container className="d-flex align-items-center justify-content-center my-3">
 
-          <h2>{currentProduct.name}</h2>
+          <Card className=' p-3 ' style={{width: '45rem', background:
+      "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898"}}>
+          <Link className='m-1' to="/">← Back to Products</Link>
+          <Card.Title style={{fontSize: '3rem'}}>{currentProduct.name}</Card.Title>
 
-          <p>{currentProduct.description}</p>
+          <Card.Text>{currentProduct.description}</Card.Text>
 
-          <p>
+          <Card.Text>
             <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
+            <Button className="button-85" onClick={addToCart}>Add to Cart</Button>
+            <Button className="button-85"
               disabled={!cart.find((p) => p._id === currentProduct._id)}
               onClick={removeFromCart}
             >
               Remove from Cart
-            </button>
-          </p>
+            </Button>
+          </Card.Text>
 
-          <img
+          <Card.Img
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
-        </div>
+          </Card> 
+        </Container>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
