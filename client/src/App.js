@@ -10,17 +10,18 @@ import { setContext } from "@apollo/client/link/context";
 import { initReactI18next, Trans, useTranslation } from "react-i18next";
 import i18next from "i18next";
 
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Nav from "./components/Nav";
-import { StoreProvider } from "./utils/GlobalState";
-import Success from "./pages/Success";
-import OrderHistory from "./pages/OrderHistory";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+import NoMatch from './pages/NoMatch';
+// import Login from './pages/Login';
+// import Signup from './pages/Signup';
+// import Nav from './components/Nav';
+import Navbar from './components/Navbar'
+import { StoreProvider } from './utils/GlobalState';
+import Success from './pages/Success';
+import OrderHistory from './pages/OrderHistory';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 // Internationalization code (i18n)
 const translationEn = { contactForm: "Contact Form" };
@@ -77,12 +78,11 @@ function App() {
               <option value='fr'></option>
             </select>
             <StoreProvider>
-              <Nav />
+              <Navbar />
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/signup' element={<Signup />} />
                 <Route path='/about' element={<About />} />
+                {/* t on contact?  */}
                 <Route path='/contact' element={<Contact t={t} />} />
                 <Route path='/success' element={<Success />} />
                 <Route path='/orderHistory' element={<OrderHistory />} />

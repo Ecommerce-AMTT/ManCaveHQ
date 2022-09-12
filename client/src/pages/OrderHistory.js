@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
@@ -14,7 +15,7 @@ function OrderHistory() {
 
   return (
     <>
-      <div className="container my-1">
+      <Container className=" my-1">
         <Link to="/">← Back to Products</Link>
 
         {user ? (
@@ -44,7 +45,7 @@ function OrderHistory() {
             ))}
           </>
         ) : null}
-      </div>
+      </Container>
     </>
   );
 }

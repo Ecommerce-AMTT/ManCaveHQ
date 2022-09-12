@@ -26,6 +26,7 @@ h3,
 h4,
 h5,
 h6 {
+  color:rgb(211, 203, 203);
   margin: 5px 0;
   line-height: 1.25;
 }
@@ -78,6 +79,10 @@ header a {
   color: var(--light);
 }
 
+.nav-pills .nav-link.active{
+  background-color: #111;
+}
+
 button {
   font-size: 1rem;
   text-decoration: none;
@@ -87,7 +92,7 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  background-color: rgb(187, 17, 17);
 }
 
 button:hover {
@@ -137,6 +142,7 @@ input:focus {
   flex-wrap: wrap;
 }
 
+
 .space-between {
   justify-content: space-between;
 }
@@ -185,20 +191,20 @@ input:focus {
   padding-bottom: var(--spacing-two);
 }
 
-.card {
-  width: 25%;
-  text-align: center;
+.about-card {
+  box-shadow: 5px 5px 20px black;
+  /* overflow: hidden; */
 }
+
+/* .card-body {
+  height: 200px;
+  width: 350px;
+} */
 
 .error-text {
   color: var(--error);
 }
 
-@media screen and (max-width: 768px) {
-  .card {
-    width: 100%;
-  }
-}
 .small {
   font-weight: 300;
   font-style: italic;
@@ -220,6 +226,15 @@ input:focus {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.trash {
+  cursor: pointer;
+}
+
+.trash:hover {
+  color: rgb(139, 42, 42);
+  text-decoration: underline;
 }
 
 .button-85:before {
@@ -250,6 +265,30 @@ input:focus {
   border-radius: 10px;
 }
 
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+  .detail-text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+
+
 @keyframes glowing-button-85 {
   0% {
     background-position: 0 0;
@@ -262,14 +301,3 @@ input:focus {
   }
 }
 
-.button-85:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #222;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-}
