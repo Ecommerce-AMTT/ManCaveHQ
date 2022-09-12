@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
 
-function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+function Signup({ t }) {
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
@@ -31,53 +31,53 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+    <div className='container my-1'>
+      <Link to='/login'>← Go to Login</Link>
 
-      <h2>Signup</h2>
+      <h2>{t("Signup:Signup")}</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
+        <div className='flex-row space-between my-2'>
+          <label htmlFor='firstName'>{t("Signup:firstName")}:</label>
           <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
+            placeholder={t("Signup:first")}
+            name='firstName'
+            type='firstName'
+            id='firstName'
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
+        <div className='flex-row space-between my-2'>
+          <label htmlFor='lastName'>{t("Signup:lastName")}:</label>
           <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
+            placeholder={t("Signup:last")}
+            name='lastName'
+            type='lastName'
+            id='lastName'
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
+        <div className='flex-row space-between my-2'>
+          <label htmlFor='email'>{t("Signup:email")}:</label>
           <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
+            placeholder='youremail@test.com'
+            name='email'
+            type='email'
+            id='email'
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
+        <div className='flex-row space-between my-2'>
+          <label htmlFor='pwd'>{t("Signup:password")}:</label>
           <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
+            placeholder='******'
+            name='password'
+            type='password'
+            id='pwd'
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+        <div className='flex-row flex-end'>
+          <button type='submit'>{t("Signup:submit")}</button>
         </div>
       </form>
     </div>

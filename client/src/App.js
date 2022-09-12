@@ -46,18 +46,12 @@ const client = new ApolloClient({
 function App() {
   const { t, i18n } = useTranslation();
 
-  console.log("App.js i18n = ", i18n);
-
   const onChangeLang_old = (e) => {
     i18n.changeLanguage(e.target.value);
-    console.log("onChange lang called lang = ", e.target.value);
-    console.log("App.js t(contactForm) = ", t("contactForm"));
   };
 
   const onChangeLang = (e) => {
     i18n.changeLanguage(e.target.value);
-    console.log("onChange lang called lang = ", e.target.value);
-    console.log("App.js t(contactForm) = ", t("contactForm"));
   };
 
   return (
@@ -80,13 +74,13 @@ function App() {
           </Dropdown.Menu>
         </Dropdown>
         <StoreProvider>
-          <Nav />
+          <Nav t={t} />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
+            <Route path='/signup' element={<Signup t={t} />} />
             <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact t={t} i18n={i18n} />} />
+            <Route path='/contact' element={<Contact t={t} />} />
             <Route path='/success' element={<Success />} />
             <Route path='/orderHistory' element={<OrderHistory />} />
             <Route path='/products/:id' element={<Detail />} />

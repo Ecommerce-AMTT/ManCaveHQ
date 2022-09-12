@@ -5,8 +5,6 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import i18next from "./i18n";
 
-console.log("i18next ....", i18next);
-
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback='Loading...'>

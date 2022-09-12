@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { validateEmail } from "../utils/helpers";
 import { Card, Container, Button } from "react-bootstrap";
 
-export default function Contact({ t, i18n }) {
-  console.log("Contact.js  t = ", t);
-  console.log("Contact.js  ns = ", i18n.ns);
-
-  i18n.setDefaultNamespace("Contact");
-
+export default function Contact({ t }) {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
