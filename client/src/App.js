@@ -22,6 +22,7 @@ import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
+// Internationalization code (i18n)
 const translationEn = { contactForm: "Contact Form" };
 const translationEs = { contactForm: "Formulario de contacto" };
 const translationFr = { contactForm: "Formulaire de contact" };
