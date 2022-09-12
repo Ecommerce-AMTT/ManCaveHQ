@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { validateEmail } from "../utils/helpers";
 import { Card, Container, Button } from "react-bootstrap";
 
-export default function Contact({ t }) {
+export default function Contact({ t, i18n }) {
   console.log("Contact.js  t = ", t);
+  console.log("Contact.js  ns = ", i18n.ns);
+
+  i18n.setDefaultNamespace("Contact");
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -43,14 +47,14 @@ export default function Contact({ t }) {
   };
 
   return (
-    <section className='container'>
+    <Container id='Contact' bg='primary'>
       <h2 data-testid='h1tag' className='top-title'>
-        {t("contactForm")}
+        {t("Contact:contactForm")}
       </h2>
       <hr></hr>
       <form className='justify-content-center' id='contact-form'>
         <div className='mt-5'>
-          <label htmlFor='name'>Name:</label>
+          <label htmlFor='name'>{t("Contact:name")}:</label>
           <input
             className='form-control'
             type='text'
@@ -60,7 +64,7 @@ export default function Contact({ t }) {
           />
         </div>
         <div className='mt-5'>
-          <label htmlFor='email'>Email Address:</label>
+          <label htmlFor='email'>{t("Contact:email")}:</label>
           <input
             className='form-control'
             type='email'
@@ -70,7 +74,7 @@ export default function Contact({ t }) {
           />
         </div>
         <div className='mt-5'>
-          <label htmlFor='message'>Message:</label>
+          <label htmlFor='message'>{t("Contact:message")}:</label>
           <textarea
             className='form-control'
             name='message'
@@ -93,10 +97,10 @@ export default function Contact({ t }) {
             type='submit'
             onSubmit={handleSubmit}
           >
-            Submit
+            {t("Contact:submit")}
           </Button>
         </div>
       </form>
-    </section>
+    </Container>
   );
 }
