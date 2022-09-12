@@ -16,15 +16,6 @@ const typeDefs = gql`
     category: Category
   }
 
-  type newProduct {
-    id: ID!
-    title: String!
-    description: String!
-    price: Int!
-    brand: String
-    thumbnail: String
-  }
-
   type Review {
     title: String
     rating: Int
@@ -64,8 +55,6 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
-    newProducts: [newProduct]
-    newProduct(id: ID!): newProduct
   }
 
   type Mutation {
