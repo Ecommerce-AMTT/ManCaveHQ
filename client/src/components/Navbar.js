@@ -36,16 +36,10 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/orderHistory'>
                   Order History
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/about'>
-                  About
-                  </Nav.Link>
-                  <Nav.Link as={Link} to='/contact'>
-                  Contact
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link className="mr-5" onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>
+                <Nav.Link className="mr-5" onClick={() => setShowModal(true)}>
                   Login/Sign Up
                 </Nav.Link>
               )}

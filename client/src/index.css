@@ -191,10 +191,15 @@ input:focus {
   padding-bottom: var(--spacing-two);
 }
 
-.card {
-  width: 25%;
-  text-align: center;
+.about-card {
+  box-shadow: 5px 5px 20px black;
+  /* overflow: hidden; */
 }
+
+/* .card-body {
+  height: 200px;
+  width: 350px;
+} */
 
 .error-text {
   color: var(--error);
@@ -295,3 +300,4 @@ input:focus {
     background-position: 0 0;
   }
 }
+
