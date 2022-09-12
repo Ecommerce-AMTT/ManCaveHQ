@@ -17,6 +17,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "react-bootstrap": "^2.5.0"
+    "i18next": "^21.9.1",
+    "react-bootstrap": "^2.5.0",
+    "react-i18next": "^11.18.6"
   }
 }
