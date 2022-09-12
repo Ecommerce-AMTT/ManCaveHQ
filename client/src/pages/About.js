@@ -193,7 +193,7 @@ export default function About() {
             </a>
           </span>
         </Card.Text>
-      </Card>
+      </Card>        
     </Container>
   );
 }

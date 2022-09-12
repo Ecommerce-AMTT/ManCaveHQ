@@ -10,18 +10,18 @@ import { setContext } from "@apollo/client/link/context";
 import { initReactI18next, Trans, useTranslation } from "react-i18next";
 import i18next from "i18next";
 
-import Home from './pages/Home';
-import Detail from './pages/Detail';
-import NoMatch from './pages/NoMatch';
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+import NoMatch from "./pages/NoMatch";
 // import Login from './pages/Login';
 // import Signup from './pages/Signup';
 // import Nav from './components/Nav';
-import Navbar from './components/Navbar'
-import { StoreProvider } from './utils/GlobalState';
-import Success from './pages/Success';
-import OrderHistory from './pages/OrderHistory';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import Navbar from "./components/Navbar";
+import { StoreProvider } from "./utils/GlobalState";
+import Success from "./pages/Success";
+import OrderHistory from "./pages/OrderHistory";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 // Internationalization code (i18n)
 const translationEn = { contactForm: "Contact Form" };
@@ -68,29 +68,29 @@ function App() {
   };
 
   return (
-    <Suspense fallback='Loading...'>
+    <Suspense fallback="Loading...">
       <ApolloProvider client={client}>
         <Router>
-          <Trans>
-            <select name='language' onChange={onChangeLang}>
-              <option value='en'></option>
-              <option value='es'></option>
-              <option value='fr'></option>
-            </select>
-            <StoreProvider>
-              <Navbar />
+          <StoreProvider>
+            <Navbar />
+            <Trans >
+              <select className="m-2" name="language" onChange={onChangeLang}>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+              </select>
               <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
                 {/* t on contact?  */}
-                <Route path='/contact' element={<Contact t={t} />} />
-                <Route path='/success' element={<Success />} />
-                <Route path='/orderHistory' element={<OrderHistory />} />
-                <Route path='/products/:id' element={<Detail />} />
-                <Route path='*' element={<NoMatch />} />
+                <Route path="/contact" element={<Contact t={t} />} />
+                <Route path="/success" element={<Success />} />
+                <Route path="/orderHistory" element={<OrderHistory />} />
+                <Route path="/products/:id" element={<Detail />} />
+                <Route path="*" element={<NoMatch />} />
               </Routes>
-            </StoreProvider>
-          </Trans>
+            </Trans>
+          </StoreProvider>
         </Router>
       </ApolloProvider>
     </Suspense>
