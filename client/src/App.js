@@ -22,6 +22,7 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Loading from "./components/Loading"
 
 // Internationalization code (i18n)
 const translationEn = { contactForm: "Contact Form" };
@@ -75,7 +76,7 @@ function App() {
             <Navbar />
             <Trans >
               <select className="m-2" name="language" onChange={onChangeLang}>
-                <option value="en">English</option>
+                <option value="en">English </option>
                 <option value="es">Español</option>
                 <option value="fr">Français</option>
               </select>
@@ -86,6 +87,7 @@ function App() {
                 <Route path="/contact" element={<Contact t={t} />} />
                 <Route path="/success" element={<Success />} />
                 <Route path="/orderHistory" element={<OrderHistory />} />
+                <Route path="/loading" element={<Loading />} />
                 <Route path="/products/:id" element={<Detail />} />
                 <Route path="*" element={<NoMatch />} />
               </Routes>
