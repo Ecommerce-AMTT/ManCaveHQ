@@ -70,7 +70,6 @@ function App() {
           <Dropdown.Toggle variant='success' id='dropdown-basic'>
             <FontAwesomeIcon icon={faGlobe} />
           </Dropdown.Toggle>
-
           <Dropdown.Menu onClick={onChangeLang}>
             <Dropdown.Item data-value='en'>English</Dropdown.Item>
             <Dropdown.Item data-value='es'>Español</Dropdown.Item>

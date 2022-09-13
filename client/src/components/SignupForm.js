@@ -1,17 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
 
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
+import { useSelector } from "react-redux";
 
 const SignupForm = () => {
+  const { t } = useSelector((state) => {
+    // console.log("Contact.state ", state);
+    return state.translate;
+  });
+
   // set initial form state
   const [userFormData, setUserFormData] = useState({
-    userName: '',
-    email: '',
-    password: '',
+    userName: "",
+    email: "",
+    password: "",
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -54,67 +60,71 @@ const SignupForm = () => {
     }
 
     setUserFormData({
-      userName: '',
-      email: '',
-      password: '',
+      userName: "",
+      email: "",
+      password: "",
     });
   };
 
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form  noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
-          variant="danger"
+          variant='danger'
         >
-          Something went wrong with your signup!
+          {t("Signup:wrong_signup")}
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor="userName">Username</Form.Label>
+          <Form.Label htmlFor='userName'>{t("Signup:username")}</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="Your username"
-            name="userName"
+            type='text'
+            placeholder={t("Signup:your_username")}
+            name='userName'
             onChange={handleInputChange}
             value={userFormData.userName}
             required
           />
-          <Form.Control.Feedback type="invalid">
-            Username is required!
+          <Form.Control.Feedback type='invalid'>
+            {t("Signup:username_required")}
           </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label className='mt-2' htmlFor="email">Email</Form.Label>
+          <Form.Label className='mt-2' htmlFor='email'>
+            {t("Signup:email")}
+          </Form.Label>
           <Form.Control
-            type="email"
-            placeholder="Your email address"
-            name="email"
+            type='email'
+            placeholder={t("Signup:wrong_signup")}
+            name='email'
             onChange={handleInputChange}
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type="invalid">
-            Email is required!
+          <Form.Control.Feedback type='invalid'>
+            {t("Signup:email_required")}
           </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label className='mt-2' htmlFor="password">Password</Form.Label>
+          <Form.Label className='mt-2' htmlFor='password'>
+            {t("Signup:password")}
+          </Form.Label>
           <Form.Control
-            type="password"
-            placeholder="Your password"
-            name="password"
+            type='password'
+            placeholder={t("Signup:your_password")}
+            name='password'
             onChange={handleInputChange}
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback type='invalid'>
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
@@ -126,10 +136,10 @@ const SignupForm = () => {
               userFormData.password
             )
           }
-          type="submit"
-          className="button-85 mt-3"
+          type='submit'
+          className='button-85 mt-3'
         >
-          Submit
+          {t("Signup:submit")}
         </Button>
       </Form>
     </>
