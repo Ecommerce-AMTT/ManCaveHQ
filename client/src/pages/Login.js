@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useMutation } from "@apollo/client";
@@ -14,28 +15,30 @@ function Login() {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
-      const token = mutationResponse.data.login.token;
-      Auth.login(token);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
+//   const handleFormSubmit = async (event) => {
+//     event.preventDefault();
+//     try {
+//       const mutationResponse = await login({
+//         variables: { email: formState.email, password: formState.password },
+//       });
+//       const token = mutationResponse.data.login.token;
+//       Auth.login(token);
+//     } catch (e) {
+//       console.log(e);
+//     }
+//   };
 
-  return (
+//   const handleChange = (event) => {
+//     const { name, value } = event.target;
+//     setFormState({
+//       ...formState,
+//       [name]: value,
+//     });
+//   };
+
+
+ return (
     <div className='container my-1'>
       <Link to='/signup'>← Go to Signup</Link>
 
@@ -74,4 +77,4 @@ function Login() {
   );
 }
 
-export default Login;
+// export default Login;
