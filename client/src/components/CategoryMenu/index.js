@@ -1,15 +1,21 @@
-import React, { useEffect } from 'react';
-import { Container, Button } from 'react-bootstrap';
-import { useQuery } from '@apollo/client';
-import { useStoreContext } from '../../utils/GlobalState';
+import React, { useEffect } from "react";
+import { Container, Button } from "react-bootstrap";
+import { useQuery } from "@apollo/client";
+import { useStoreContext } from "../../utils/GlobalState";
 import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
-} from '../../utils/actions';
-import { QUERY_CATEGORIES } from '../../utils/queries';
-import { idbPromise } from '../../utils/helpers';
+} from "../../utils/actions";
+import { QUERY_CATEGORIES } from "../../utils/queries";
+import { idbPromise } from "../../utils/helpers";
+import { useSelector } from "react-redux";
 
-function CategoryMenu() {
+export default function CategoryMenu() {
+  const { t } = useSelector((state) => {
+    // console.log("Contact.state ", state);
+    return state.translate;
+  });
+
   const [state, dispatch] = useStoreContext();
 
   const { categories } = state;
@@ -23,10 +29,10 @@ function CategoryMenu() {
         categories: categoryData.categories,
       });
       categoryData.categories.forEach((category) => {
-        idbPromise('categories', 'put', category);
+        idbPromise("categories", "put", category);
       });
     } else if (!loading) {
-      idbPromise('categories', 'get').then((categories) => {
+      idbPromise("categories", "get").then((categories) => {
         dispatch({
           type: UPDATE_CATEGORIES,
           categories: categories,
@@ -43,10 +49,11 @@ function CategoryMenu() {
   };
 
   return (
-    <Container >
-      <h2 className="mb-2">Choose a Category:</h2>
+    <Container>
+      <h2 className='mb-2'>{t("Menu:choose_category")}:</h2>
       {categories.map((item) => (
-        <Button className='m-1 button-85'
+        <Button
+          className='m-1 button-85'
           key={item._id}
           onClick={() => {
             handleClick(item._id);
@@ -58,5 +65,3 @@ function CategoryMenu() {
     </Container>
   );
 }
-
-export default CategoryMenu;
