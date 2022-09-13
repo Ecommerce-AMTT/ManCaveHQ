@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,27 +15,29 @@ function Signup() {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [addUser] = useMutation(ADD_USER);
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
+//   const handleFormSubmit = async (event) => {
+//     event.preventDefault();
+//     const mutationResponse = await addUser({
+//       variables: {
+//         email: formState.email,
+//         password: formState.password,
+//         firstName: formState.firstName,
+//         lastName: formState.lastName,
+//       },
+//     });
+//     const token = mutationResponse.data.addUser.token;
+//     Auth.login(token);
+//   };
+
+//   const handleChange = (event) => {
+//     const { name, value } = event.target;
+//     setFormState({
+//       ...formState,
+//       [name]: value,
+//     });
+//   };
+
 
   return (
     <div className='container my-1'>
@@ -90,4 +93,5 @@ function Signup() {
   );
 }
 
-export default Signup;
+
+// export default Signup;

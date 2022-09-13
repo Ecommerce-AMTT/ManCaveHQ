@@ -48,14 +48,16 @@ export default function Contact() {
   };
 
   return (
-    <Container id='Contact' bg='primary'>
+
+    <Container>
       <h2 data-testid='h1tag' className='top-title'>
         {t("Contact:contactForm")}
       </h2>
       <hr></hr>
-      <form className='justify-content-center' id='contact-form'>
+      <Container className="d-flex justify-content-center ">      
+      <form id='contact-form'>
         <div className='mt-5'>
-          <label htmlFor='name'>{t("Contact:name")}:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor='name'>{t("Contact:name")}:</label>
           <input
             className='form-control'
             type='text'
@@ -64,8 +66,9 @@ export default function Contact() {
             onBlur={handleChange}
           />
         </div>
+
         <div className='mt-5'>
-          <label htmlFor='email'>{t("Contact:email")}:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor='email'>{t("Contact:email")}:</label>
           <input
             className='form-control'
             type='email'
@@ -75,7 +78,7 @@ export default function Contact() {
           />
         </div>
         <div className='mt-5'>
-          <label htmlFor='message'>{t("Contact:message")}:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor='message'>{t("Contact:message")}:</label>
           <textarea
             className='form-control'
             name='message'
@@ -102,6 +105,7 @@ export default function Contact() {
           </Button>
         </div>
       </form>
+      </Container>
     </Container>
   );
 }

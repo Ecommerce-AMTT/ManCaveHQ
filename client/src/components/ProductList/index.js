@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 import ProductItem from '../ProductItem';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
@@ -44,8 +45,8 @@ function ProductList() {
   }
 
   return (
-    <div className="my-2">
-      <h2>Our Products:</h2>
+    <Container >
+      <h2 className="mt-2">Our Products:</h2>
       {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
@@ -63,7 +64,7 @@ function ProductList() {
         <h3>You haven't added any products yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
-    </div>
+    </Container>
   );
 }
 
