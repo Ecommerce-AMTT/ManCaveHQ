@@ -48,7 +48,7 @@ const client = new ApolloClient({
 
 function App() {
   // used to control i18n language setting
-  const { lang, setLang } = useState("en");
+  const [lang, setLang] = useState("en");
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
@@ -57,26 +57,15 @@ function App() {
     dispatch(changeT(t), []);
   });
 
-  const onChangeLang_old = (e) => {
-    i18n.changeLanguage(e.target.value);
-    // dispatch(changeI18n(i18nx));
-    dispatch(changeT(t));
-  };
-
   const onChangeLang = (e) => {
-    console.log("onChangeLang", e.target.getAttribute("data-value"));
     setLang(e.target.getAttribute("data-value"));
-    // i18n.changeLanguage(e.target.value);
+    i18n.changeLanguage(e.target.getAttribute("data-value"));
+    dispatch(changeT(t));
   };
 
   return (
     <ApolloProvider client={client}>
       <Router>
-        <select name='language' onChange={onChangeLang_old}>
-          <option value='en'></option>
-          <option value='es'></option>
-          <option value='fr'></option>
-        </select>
         <Dropdown>
           <Dropdown.Toggle variant='success' id='dropdown-basic'>
             <FontAwesomeIcon icon={faGlobe} />
