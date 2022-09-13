@@ -63,6 +63,8 @@ function App() {
   };
 
   const onChangeLang = (e) => {
+    console.log("onChangeLang", e.target.getAttribute("data-value"));
+    setLang(e.target.getAttribute("data-value"));
     // i18n.changeLanguage(e.target.value);
   };
 
@@ -79,7 +81,7 @@ function App() {
             <FontAwesomeIcon icon={faGlobe} />
           </Dropdown.Toggle>
 
-          <Dropdown.Menu onChange={onChangeLang}>
+          <Dropdown.Menu onClick={onChangeLang}>
             <Dropdown.Item data-value='en'>English</Dropdown.Item>
             <Dropdown.Item data-value='es'>Español</Dropdown.Item>
             <Dropdown.Item data-value='fr'>Français</Dropdown.Item>
