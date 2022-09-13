@@ -1,21 +1,19 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 
 function Nav() {
-
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
+        <ul className='flex-row'>
+          <li className='mx-1'>
+            <Link to='/orderHistory'>Order History</Link>
           </li>
-          <li className="mx-1">
+          <li className='mx-1'>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
+            <a href='/' onClick={() => Auth.logout()}>
               Logout
             </a>
           </li>
@@ -23,26 +21,18 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
+        <ul className='flex-row'>
+          <li className='mx-1'>
+            <Link to='/signup'>{t("Nav:signup")}</Link>
           </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
+          <li className='mx-1'>
+            <Link to='/login'>{t("Nav:login")}</Link>
           </li>
-          <li className="mx-1">
-            <Link to="/about">
-              About
-            </Link>
+          <li className='mx-1'>
+            <Link to='/about'>{t("Nav:about")}</Link>
           </li>
-          <li className="mx-1">
-            <Link to="/contact">
-              Contact
-            </Link>
+          <li className='mx-1'>
+            <Link to='/contact'>{t("Nav:contact")}</Link>
           </li>
         </ul>
       );
@@ -50,16 +40,12 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
+    <header className='flex-row px-1'>
       <h1>
-        <Link to="/">
-          ManCave-HQ
-        </Link>
+        <Link to='/'>ManCave-HQ</Link>
       </h1>
 
-      <nav>
-        {showNavigation()}
-      </nav>
+      <nav>{showNavigation()}</nav>
     </header>
   );
 }

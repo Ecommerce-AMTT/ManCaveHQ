@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -7,8 +7,9 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { initReactI18next, Trans, useTranslation } from "react-i18next";
-import i18next from "i18next";
+import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
@@ -22,22 +23,9 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-
-// Internationalization code (i18n)
-const translationEn = { contactForm: "Contact Form" };
-const translationEs = { contactForm: "Formulario de contacto" };
-const translationFr = { contactForm: "Formulaire de contact" };
-
-i18next.use(initReactI18next).init({
-  resources: {
-    en: { translation: translationEn },
-    es: { translation: translationEs },
-    fr: { translation: translationFr },
-  },
-  lng: "en",
-  fallbackLng: "en",
-  interpolation: { escapeValue: false },
-});
+import { Dropdown } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { changeI18n, changeT } from "./redux/translate";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -59,41 +47,59 @@ const client = new ApolloClient({
 });
 
 function App() {
+  // used to control i18n language setting
+  const { lang, setLang } = useState("en");
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // console.log("UseEffect.dispatch called");
+    dispatch(changeT(t), []);
+  });
+
+  const onChangeLang_old = (e) => {
+    i18n.changeLanguage(e.target.value);
+    // dispatch(changeI18n(i18nx));
+    dispatch(changeT(t));
+  };
 
   const onChangeLang = (e) => {
-    i18n.changeLanguage(e.target.value);
-    console.log("onChange lang called", e.target.value);
-    console.log("App.js t = ", t);
+    // i18n.changeLanguage(e.target.value);
   };
 
   return (
-    <Suspense fallback="Loading...">
-      <ApolloProvider client={client}>
-        <Router>
-          <StoreProvider>
-            <Navbar />
-            <Trans >
-              <select className="m-2" name="language" onChange={onChangeLang}>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-                <option value="fr">Français</option>
-              </select>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                {/* t on contact?  */}
-                <Route path="/contact" element={<Contact t={t} />} />
-                <Route path="/success" element={<Success />} />
-                <Route path="/orderHistory" element={<OrderHistory />} />
-                <Route path="/products/:id" element={<Detail />} />
-                <Route path="*" element={<NoMatch />} />
-              </Routes>
-            </Trans>
-          </StoreProvider>
-        </Router>
-      </ApolloProvider>
-    </Suspense>
+    <ApolloProvider client={client}>
+      <Router>
+        <select name='language' onChange={onChangeLang_old}>
+          <option value='en'></option>
+          <option value='es'></option>
+          <option value='fr'></option>
+        </select>
+        <Dropdown>
+          <Dropdown.Toggle variant='success' id='dropdown-basic'>
+            <FontAwesomeIcon icon={faGlobe} />
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu onChange={onChangeLang}>
+            <Dropdown.Item data-value='en'>English</Dropdown.Item>
+            <Dropdown.Item data-value='es'>Español</Dropdown.Item>
+            <Dropdown.Item data-value='fr'>Français</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <StoreProvider>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/success' element={<Success />} />
+            <Route path='/orderHistory' element={<OrderHistory />} />
+            <Route path='/products/:id' element={<Detail />} />
+            <Route path='*' element={<NoMatch />} />
+          </Routes>
+        </StoreProvider>
+      </Router>
+    </ApolloProvider>
   );
 }
 
