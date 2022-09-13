@@ -98,7 +98,7 @@ const resolvers = {
       const token = signToken(user);
 
       sendmail(
-        "tony.poku@mlco.com, tonypoku@gmail.com", //TODO: This should be user.email, but for testing sake...
+        "mmasonmccoy@gmail.com, londono.alberto110@gmail.com, t.k.hobbes43@gmail.com, tonypoku@gmail.com", //TODO: This should be user.email, but for testing sake...
         `${user.email} has been successfully registered on MernCaveHQ`,
         "You are well on your journey to lighting the cave"
       );

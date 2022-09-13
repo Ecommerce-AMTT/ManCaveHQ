@@ -20,11 +20,11 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Loading from "./components/Loading"
+import Loading from "./components/Loading";
 
 import { Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { changeI18n, changeT } from "./redux/translate";
+import { changeT } from "./redux/translate";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -83,7 +83,7 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path='/success' element={<Success />} />
             <Route path='/orderHistory' element={<OrderHistory />} />
-            <Route path="/loading" element={<Loading />} />
+            <Route path='/loading' element={<Loading />} />
             <Route path='/products/:id' element={<Detail />} />
             <Route path='*' element={<NoMatch />} />
           </Routes>
