@@ -7,7 +7,7 @@
     "start": "node server.js",
     "watch": "nodemon",
     "seed": "node seeds/seed.js",
-    "oldseed": "node config/seed.js",
+    "oldseed": "node config/seeds.js",
     "test": "jest"
   },
   "keywords": [],
