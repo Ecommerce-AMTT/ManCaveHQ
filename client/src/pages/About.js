@@ -117,9 +117,8 @@ export default function About() {
           <Card.Text>
             I am currently attending Northwestern
             University's Coding Bootcamp to earn a certificate in full stack web
-            development. With my newly developed skills, I hope to start fresh
-            in this exciting industry and gain as much insight possible to make
-            beautiful user-facing web applications.
+            development. With my newly developed skills, I hope to gain as much 
+            insight possible to make beautiful user-facing web applications.
           </Card.Text>
         </Card.Body>
         <Card.Text className="container text-center " style={{ fontSize: 25 }}>
