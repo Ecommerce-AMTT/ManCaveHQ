@@ -1,5 +1,7 @@
+
 import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import ProductItem from "../ProductItem";
 import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
@@ -7,7 +9,8 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif";
-import { useSelector } from "react-redux";
+import Loading from "../Loading"
+
 
 export default function ProductList() {
   const { t } = useSelector((state) => {
@@ -68,7 +71,8 @@ export default function ProductList() {
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
-      {loading ? <img src={spinner} alt='loading' /> : null}
+      {loading ? <Loading /> : null}
+
     </Container>
   );
 }

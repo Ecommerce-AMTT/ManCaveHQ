@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 
 import Cart from "../components/Cart";
 import { useStoreContext } from "../utils/GlobalState";
+import Loading from '../components/Loading'
+
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -130,7 +132,7 @@ export default function Detail() {
           </Card>
         </Container>
       ) : null}
-      {loading ? <img src={spinner} alt='loading' /> : null}
+      {loading ? <Loading /> : null}
       <Cart />
     </>
   );
