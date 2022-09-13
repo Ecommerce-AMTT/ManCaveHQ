@@ -2,6 +2,7 @@
     {
         "name": "HP Computer Monitor",
         "price": 149.99,
+        "description": "An HP model computer monitor with an 18\" screen.",
         "category_name": "Computer Monitors",
         "rating": 4.69,
         "quantity": 10,
@@ -10,6 +11,7 @@
     },
     {
         "name": "Samsung Computer Monitor",
+        "description": "A Samsung model computer monitor with an 24\" screen.",
         "price": 319.99,
         "category_name": "Computer Monitors",
         "rating": 3.9,
@@ -19,6 +21,7 @@
     },
     {
         "name": "LG Computer Monitor",
+        "description": "An LG model computer monitor with an 16\" screen.",
         "price": 129.99,
         "category_name": "Computer Monitors",
         "rating": 4.80,
@@ -28,6 +31,7 @@
     },
     {
         "name": "Lenovo Computer Monitor",
+        "description": "A Lenovo model computer monitor with an 18\" screen.",
         "price": 149.99,
         "category_name": "Computer Monitors",
         "rating": 4.69,
@@ -37,6 +41,7 @@
     },
     {
         "name": "Sony Computer Monitor",
+        "description": "A Sony model computer monitor with an 18\" screen.",
         "price": 149.99,
         "category_name": "Computer Monitors",
         "rating": 4.69,
@@ -46,6 +51,7 @@
     },
     {
         "name": "Insignia Ethernet Cable",
+        "description": "20' long. Makes internet and stuff.",
         "price": 15.99,
         "category_name": "Computer Cables",
         "quantity": 0,
@@ -55,6 +61,7 @@
     },
     {
         "name": "AudioQuest HDMI Cable",
+        "description": "Just long enough to get tangled.",
         "price": 79.95,
         "category_name": "Computer Cables",
         "rating": 4.97,
@@ -64,6 +71,7 @@
     },
     {
         "name": "Apple USB Type C to Lightning Charging Cable",
+        "description": "You'll have to buy a new one when the next phone comes out.",
         "price": 29.00,
         "category_name": "Computer Cables",
         "rating": 4.0,
@@ -73,6 +81,7 @@
     },
     {
         "name": "Best Buy Essentials 6' DisplayPort Cable",
+        "description": "Displays things, surely. 15'ish.",
         "price": 8.99,
         "category_name": "Computer Cables",
         "rating": 4.90,
@@ -82,6 +91,7 @@
     },
     {
         "name": "Metra 17 Inch RCA Cable",
+        "description": "It's probably for audio?",
         "price": 12.99,
         "category_name": "Computer Cables",
         "rating": 4.69,
@@ -91,6 +101,7 @@
     },
     {
         "name": "BlueParrott Wireless Headset",
+        "description": "Cut the cord and go wireless. Charging station not included.",
         "price": 169.99,
         "category_name": "Bluetooth Equipment",
         "rating": 4.80,
@@ -100,6 +111,7 @@
     },
     {
         "name": "Sony Digital Bluetooth Wireless Microphone",
+        "description": "Hiram, this one is for you.",
         "price": 229.99,
         "category_name": "Bluetooth Equipment",
         "rating": 4.44,
@@ -109,6 +121,7 @@
     },
     {
         "name": "Bose SoundLink Flex Portable Speaker",
+        "description": "Annoy every commuter in the traincar on your way to work.",
         "price": 149.99,
         "category_name": "Bluetooth Equipment",
         "rating": 4.90,
@@ -118,6 +131,7 @@
     },
     {
         "name": "Logitech Anywhere 3 Wireless Mouse",
+        "description": "Light and durable. A mouse for the on-the-go mouser.",
         "price": 79.99,
         "category_name": "Bluetooth Equipment",
         "rating": 4.99,
@@ -127,6 +141,7 @@
     },
     {
         "name": "ASUS Bluetooth Smart Ready USB Adapter",
+        "description": "Adapt or die!",
         "price": 17.99,
         "category_name": "Bluetooth Equipment",
         "rating": 4.5,
@@ -136,6 +151,7 @@
     },
     {
         "name": "Microsoft Full Size Mechanical Keyboard",
+        "description": "Sound busier than you actually are! Clickety clack.",
         "price": 29.99,
         "category_name": "Bluetooth Equipment",
         "rating": 4.13,
@@ -144,7 +160,8 @@
         "reviews": "useful, all the keys work seamlessly. only thing it doesn't have are little keyboard legs"
     },
     {
-        "name": "Logitech MK850 Performance Full-size Keyboard",
+        "name": "Logitech MK850 Performance Full Size Keyboard",
+        "description": "The BMW of keyboards.",
         "price": 89.99,
         "category_name": "Bluetooth Equipment",
         "rating": 4.5,
@@ -154,6 +171,7 @@
     },
     {
         "name": "Razer BlackWidow V3 Pro Full Size Mechanical Keyboard",
+        "description": "Clack clack clack clack clack clikety clack.",
         "price": 139.99,
         "category_name": "Keyboards",
         "rating": 4.20,
@@ -163,6 +181,7 @@
     },
     {
         "name": "HyperX Alloy Core Full Size Gaming RGB Lighting Keyboard",
+        "description": "How many more exciting words can we fit in the product name? Game on.",
         "price": 29.99,
         "category_name": "Keyboards",
         "rating": 4.80,
@@ -172,6 +191,7 @@
     },
     {
         "name": "Apple MQ052LL/A Full Size Wireless Scissor Magic Keyboard",
+        "description": "The standard. A classic.",
         "price": 129.99,
         "category_name": "Keyboards",
         "rating": 4.94,
@@ -181,6 +201,7 @@
     },
     {
         "name": "Insignia Ergonomic Mesh Chair",
+        "description": "It's a third of your life, it may as well be comfortable.",
         "price": 249.99,
         "category_name": "Ergonomics",
         "rating": 4.96,
@@ -190,6 +211,7 @@
     },
     {
         "name": "Logitech ERGO M575 Mouse With Ergonomic Design",
+        "description": "Treat your hands like a surgeon's with this comfy clicker!",
         "price": 49.99,
         "category_name": "Ergonomics",
         "rating": 4.94,
@@ -199,6 +221,7 @@
     },
     {
         "name": "Microsoft Sculpt Desktop Ergonomic Full Size Keyboard",
+        "description": "So luxurious, you'll never go back.",
         "price": 99.99,
         "category_name": "Ergonomics",
         "rating": 4.49,
@@ -208,6 +231,7 @@
     },
     {
         "name": "Insignia Ergnomic Laptop Stand - Silver",
+        "description": "Uplift your laptop from the dreg of the desk.",
         "price": 29.99,
         "category_name": "Ergonomics",
         "rating": 4.90,
@@ -217,6 +241,7 @@
     },
     {
         "name": "Razer Ergonomic Pro Wrist Rest",
+        "description": "Say, Pro Wrist Rest 10 times fast. I dare you.",
         "price": 34.99,
         "category_name": "Ergonomics",
         "rating": 4.97,
