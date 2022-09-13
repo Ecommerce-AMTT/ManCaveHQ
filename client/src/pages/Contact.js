@@ -43,14 +43,16 @@ export default function Contact({ t }) {
   };
 
   return (
-    <section className='container'>
-      <h2 data-testid='h1tag' className='top-title'>
+    <Container >
+      <h2 data-testid="h1tag" className="top-title">
+        {/* Contact Form */}
         {t("contactForm")}
       </h2>
       <hr></hr>
-      <form className='justify-content-center' id='contact-form'>
-        <div className='mt-5'>
-          <label htmlFor='name'>Name:</label>
+      <Container className="d-flex justify-content-center ">
+      <form id="contact-form">
+        <div className="mt-5">
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor="name">Name:</label>
           <input
             className='form-control'
             type='text'
@@ -59,8 +61,8 @@ export default function Contact({ t }) {
             onBlur={handleChange}
           />
         </div>
-        <div className='mt-5'>
-          <label htmlFor='email'>Email Address:</label>
+        <div className="mt-5">
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor="email">Email Address:</label>
           <input
             className='form-control'
             type='email'
@@ -69,8 +71,8 @@ export default function Contact({ t }) {
             onBlur={handleChange}
           />
         </div>
-        <div className='mt-5'>
-          <label htmlFor='message'>Message:</label>
+        <div className="mt-5">
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor="message">Message:</label>
           <textarea
             className='form-control'
             name='message'
@@ -97,6 +99,7 @@ export default function Contact({ t }) {
           </Button>
         </div>
       </form>
-    </section>
+      </Container>
+    </Container>
   );
 }

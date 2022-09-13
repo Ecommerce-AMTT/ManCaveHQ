@@ -3,9 +3,9 @@ import { Card, Container } from "react-bootstrap";
 
 export default function About() {
   return (
-    <Container className="d-flex flex-wrap">
+    <Container className="d-flex flex-wrap justify-content-center align-content-center">
       <Card
-        className="m-3 p-2"
+        className="m-3 p-2 about-card"
         style={{
           width: "18rem",
           background:
@@ -17,7 +17,7 @@ export default function About() {
           className="card-img-top"
           alt="Coder"
         />
-        <Card.Body className="container text-center ">
+        <Card.Body className="container text-center card-body">
           <Card.Title style={{ fontSize: 30 }}>Alberto Londono</Card.Title>
           <Card.Text>
             When I'm not perfecting the art of coding or designing something, I
@@ -193,7 +193,7 @@ export default function About() {
             </a>
           </span>
         </Card.Text>
-      </Card>
+      </Card>        
     </Container>
   );
 }

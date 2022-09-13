@@ -70,9 +70,7 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
+        <i className="fa fa-shopping-cart" aria-hidden="true"></i>
       </div>
     );
   }
@@ -80,7 +78,7 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="close" onClick={toggleCart}>
-        [close]
+      <i className="fa fa-times" aria-hidden="true"></i>
       </div>
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
