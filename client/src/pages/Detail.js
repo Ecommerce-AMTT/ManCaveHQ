@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import Cart from '../components/Cart';
+import Loading from '../components/Loading'
 import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
@@ -112,7 +113,7 @@ function Detail() {
           </Card> 
         </Container>
       ) : null}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? <Loading /> : null}
       <Cart />
     </>
   );

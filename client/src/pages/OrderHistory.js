@@ -28,19 +28,20 @@ function OrderHistory() {
                 <h3>
                   {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
                 </h3>
-                <div className="flex-row">
+                <Container className="d-flex justify-content-center align-items-center">
                   {order.products.map(({ _id, image, name, price }, index) => (
-                    <div key={index} className="card px-1 py-1">
+                    <Card key={index} className="text-center p-2 m-3" style={{width: '16rem', background:
+                    "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898"}}>
                       <Link to={`/products/${_id}`}>
-                        <img alt={name} src={`/images/${image}`} />
-                        <p>{name}</p>
+                        <Card.Img alt={name} src={`/images/${image}`} />
+                        <Card.Text className="m-2">{name}</Card.Text>
                       </Link>
                       <div>
                         <span>${price}</span>
                       </div>
-                    </div>
+                    </Card>
                   ))}
-                </div>
+                </Container>
               </div>
             ))}
           </>
