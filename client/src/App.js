@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -7,7 +7,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,6 +23,8 @@ import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { Dropdown } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { changeI18n, changeT } from "./redux/translate";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -44,14 +46,24 @@ const client = new ApolloClient({
 });
 
 function App() {
+  // used to control i18n language setting
+  const { lang, setLang } = useState("en");
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // console.log("UseEffect.dispatch called");
+    dispatch(changeT(t), []);
+  });
 
   const onChangeLang_old = (e) => {
     i18n.changeLanguage(e.target.value);
+    // dispatch(changeI18n(i18nx));
+    dispatch(changeT(t));
   };
 
   const onChangeLang = (e) => {
-    i18n.changeLanguage(e.target.value);
+    // i18n.changeLanguage(e.target.value);
   };
 
   return (
@@ -74,13 +86,13 @@ function App() {
           </Dropdown.Menu>
         </Dropdown>
         <StoreProvider>
-          <Nav t={t} />
+          <Nav />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup t={t} />} />
+            <Route path='/signup' element={<Signup />} />
             <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact t={t} />} />
+            <Route path='/contact' element={<Contact />} />
             <Route path='/success' element={<Success />} />
             <Route path='/orderHistory' element={<OrderHistory />} />
             <Route path='/products/:id' element={<Detail />} />

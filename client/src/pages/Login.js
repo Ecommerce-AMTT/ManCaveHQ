@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
-import { LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
+import { LOGIN } from "../utils/mutations";
+import Auth from "../utils/auth";
 
-function Login(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+function Login() {
+  const { t } = useSelector((state) => {
+    // console.log("Contact.state ", state);
+    return state.translate;
+  });
+
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
@@ -30,38 +36,38 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
+    <div className='container my-1'>
+      <Link to='/signup'>← Go to Signup</Link>
 
-      <h2>Login</h2>
+      <h2>{t("Login:login")}</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
+        <div className='flex-row space-between my-2'>
+          <label htmlFor='email'>{t("Login:email")}:</label>
           <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
+            placeholder='youremail@test.com'
+            name='email'
+            type='email'
+            id='email'
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
+        <div className='flex-row space-between my-2'>
+          <label htmlFor='pwd'>{t("Login:password")}:</label>
           <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
+            placeholder='******'
+            name='password'
+            type='password'
+            id='pwd'
             onChange={handleChange}
           />
         </div>
         {error ? (
           <div>
-            <p className="error-text">The provided credentials are incorrect</p>
+            <p className='error-text'>{t("Login:incorrect_credentials")}</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+        <div className='flex-row flex-end'>
+          <button type='submit'>{t("Login:submit")}</button>
         </div>
       </form>
     </div>

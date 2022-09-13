@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { validateEmail } from "../utils/helpers";
 import { Card, Container, Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
-export default function Contact({ t }) {
+export default function Contact() {
+  const { t } = useSelector((state) => {
+    // console.log("Contact.state ", state);
+    return state.translate;
+  });
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -54,7 +60,7 @@ export default function Contact({ t }) {
             className='form-control'
             type='text'
             name='name'
-            placeholder='Your Name'
+            placeholder={t("Contact:your_name")}
             onBlur={handleChange}
           />
         </div>
@@ -64,7 +70,7 @@ export default function Contact({ t }) {
             className='form-control'
             type='email'
             name='email'
-            placeholder='Your Email'
+            placeholder={t("Contact:your_email")}
             onBlur={handleChange}
           />
         </div>
@@ -73,7 +79,7 @@ export default function Contact({ t }) {
           <textarea
             className='form-control'
             name='message'
-            placeholder='Do you have any questions for us?'
+            placeholder={t("Contact:your_questions")}
             onBlur={handleChange}
             rows='7'
           />
