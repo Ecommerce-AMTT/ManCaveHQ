@@ -21,6 +21,7 @@ import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Loading from "./components/Loading"
+import Homepage from "./pages/Homepage"
 
 import { Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -90,7 +91,8 @@ function App() {
         <StoreProvider>
           <Navbar />
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Homepage />} />
+            <Route path='/products' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/success' element={<Success />} />
