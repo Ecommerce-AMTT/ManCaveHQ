@@ -7,7 +7,8 @@
         "rating": 4.69,
         "quantity": 10,
         "tag": ["HP", "Monitor"],
-        "reviews": "solid, sleak, would buy again"
+        "reviews": "solid, sleak, would buy again",
+        "image": "computer-monitor.jpg"
     },
     {
         "name": "Samsung Computer Monitor",
@@ -17,7 +18,8 @@
         "rating": 3.9,
         "quantity": 110,
         "tag": ["Samsung", "Monitor"],
-        "reviews": "Stunning, immersive"
+        "reviews": "Stunning, immersive",
+        "image": "computer-monitor.jpg"
     },
     {
         "name": "LG Computer Monitor",
@@ -27,7 +29,8 @@
         "rating": 4.80,
         "quantity": 209,
         "tag": ["LG", "Monitor"],
-        "reviews": "Excellent monitor for the price"
+        "reviews": "Excellent monitor for the price",
+        "image": "computer-monitor.jpg"
     },
     {
         "name": "Lenovo Computer Monitor",
@@ -37,7 +40,8 @@
         "rating": 4.69,
         "quantity": 0,
         "tag": ["Lenovo", "Monitor"],
-        "reviews": "solid, sleak, would buy again"
+        "reviews": "solid, sleak, would buy again",
+        "image": "computer-monitor.jpg"
     },
     {
         "name": "Sony Computer Monitor",
@@ -47,7 +51,8 @@
         "rating": 4.69,
         "quantity": 22,
         "tag": ["HP", "Monitor"],
-        "reviews": "Love it, bought 2 for my home office"
+        "reviews": "Love it, bought 2 for my home office",
+        "image": "computer-monitor.jpg"
     },
     {
         "name": "Insignia Ethernet Cable",
@@ -57,7 +62,8 @@
         "quantity": 0,
         "rating": 4.95,
         "tag": ["Insignia", "Ethernet", "Cables"],
-        "reviews": "works perfectly"
+        "reviews": "works perfectly",
+        "image": "cables.jpg"
     },
     {
         "name": "AudioQuest HDMI Cable",
@@ -67,7 +73,8 @@
         "rating": 4.97,
         "quantity": 33,
         "tag": ["AudioQuest", "HDMI", "Cables"],
-        "reviews": "highly recommend if you want your TV picture to look amazing!"
+        "reviews": "highly recommend if you want your TV picture to look amazing!",
+        "image": "cables.jpg"
     },
     {
         "name": "Apple USB Type C to Lightning Charging Cable",
@@ -77,7 +84,8 @@
         "rating": 4.0,
         "quantity": 150,
         "tag": ["Apple", "USB", "Cables"],
-        "reviews": "...since Apple won't provide us with one when we buy their phones..."
+        "reviews": "...since Apple won't provide us with one when we buy their phones...",
+        "image": "cables.jpg"
     },
     {
         "name": "Best Buy Essentials 6' DisplayPort Cable",
@@ -87,7 +95,8 @@
         "rating": 4.90,
         "quantity": 50,
         "tag": ["Best Buy", "DisplayPort", "Cables"],
-        "reviews": "perfect and inexpensive"
+        "reviews": "perfect and inexpensive",
+        "image": "cables.jpg"
     },
     {
         "name": "Metra 17 Inch RCA Cable",
@@ -97,7 +106,8 @@
         "rating": 4.69,
         "quantity": 79,
         "tag": ["Metra", "RCA", "Cables"],
-        "reviews": "great product!"
+        "reviews": "great product!",
+        "image": "cables.jpg"
     },
     {
         "name": "BlueParrott Wireless Headset",
@@ -107,7 +117,8 @@
         "rating": 4.80,
         "quantity": 199,
         "tag": ["Bluetooth", "BlueParrot", "Headset"],
-        "reviews": "best headset I've ever owned"
+        "reviews": "best headset I've ever owned",
+        "image": "Bluetooth.png"
     },
     {
         "name": "Sony Digital Bluetooth Wireless Microphone",
@@ -117,7 +128,8 @@
         "rating": 4.44,
         "quantity": 123,
         "tag": ["Bluetooth", "Sony", "Microphone"],
-        "reviews": "really love the holder that helps it from getting lost"
+        "reviews": "really love the holder that helps it from getting lost",
+        "image": "Bluetooth.png"
     },
     {
         "name": "Bose SoundLink Flex Portable Speaker",
@@ -127,7 +139,8 @@
         "rating": 4.90,
         "quantity": 45,
         "tag": ["Bluetooth", "Bose", "Waterproof"],
-        "reviews": "Bose is superior to JBL & Sony!"
+        "reviews": "Bose is superior to JBL & Sony!",
+        "image": "Bluetooth.png"
     },
     {
         "name": "Logitech Anywhere 3 Wireless Mouse",
@@ -137,7 +150,8 @@
         "rating": 4.99,
         "quantity": 300,
         "tag": ["Bluetooth", "Logitech", "Mouse"],
-        "reviews": "this feels pleasant in the hand, nice and small"
+        "reviews": "this feels pleasant in the hand, nice and small",
+        "image": "Bluetooth.png"
     },
     {
         "name": "ASUS Bluetooth Smart Ready USB Adapter",
@@ -147,27 +161,30 @@
         "rating": 4.5,
         "quantity": 12,
         "tag": ["Bluetooth", "ASUS"],
-        "reviews": "works perfectly"
+        "reviews": "works perfectly",
+        "image": "Bluetooth.png"
     },
     {
         "name": "Microsoft Full Size Mechanical Keyboard",
         "description": "Sound busier than you actually are! Clickety clack.",
         "price": 29.99,
-        "category_name": "Bluetooth Equipment",
+        "category_name": "Keyboards",
         "rating": 4.13,
         "quantity": 1,
         "tag": ["Microsoft", "Keyboard"],
-        "reviews": "useful, all the keys work seamlessly. only thing it doesn't have are little keyboard legs"
+        "reviews": "useful, all the keys work seamlessly. only thing it doesn't have are little keyboard legs",
+        "image": "keyboard.jpg"
     },
     {
         "name": "Logitech MK850 Performance Full Size Keyboard",
         "description": "The BMW of keyboards.",
         "price": 89.99,
-        "category_name": "Bluetooth Equipment",
+        "category_name": "Keyboards",
         "rating": 4.5,
         "quantity": 5,
         "tag": ["Logitech", "Keyboard"],
-        "reviews": "Comfort, easy, love it"
+        "reviews": "Comfort, easy, love it",
+        "image": "keyboard.jpg"
     },
     {
         "name": "Razer BlackWidow V3 Pro Full Size Mechanical Keyboard",
@@ -177,7 +194,8 @@
         "rating": 4.20,
         "quantity": 10,
         "tag": ["Razer", "Keyboard"],
-        "reviews": "so colorful, wooow"
+        "reviews": "so colorful, wooow",
+        "image": "keyboard.jpg"
     },
     {
         "name": "HyperX Alloy Core Full Size Gaming RGB Lighting Keyboard",
@@ -187,7 +205,8 @@
         "rating": 4.80,
         "quantity": 10,
         "tag": ["HyperX", "Gaming", "Keyboard"],
-        "reviews": "it looks fantastic, great product, especially for the price"
+        "reviews": "it looks fantastic, great product, especially for the price",
+        "image": "keyboard.jpg"
     },
     {
         "name": "Apple MQ052LL/A Full Size Wireless Scissor Magic Keyboard",
@@ -197,7 +216,8 @@
         "rating": 4.94,
         "quantity": 40,
         "tag": ["Apple", "Keyboard"],
-        "reviews": "keyboard is great, except it lays flat on the desktop, not comfortable for me"
+        "reviews": "keyboard is great, except it lays flat on the desktop, not comfortable for me",
+        "image": "keyboard.jpg"
     },
     {
         "name": "Insignia Ergonomic Mesh Chair",
@@ -207,7 +227,8 @@
         "rating": 4.96,
         "quantity": 50,
         "tag": ["Chair", "Ergonomics"],
-        "reviews": "I can sit in it for hours, and still be very comfortable"
+        "reviews": "I can sit in it for hours, and still be very comfortable",
+        "image": "ergonomics.png"
     },
     {
         "name": "Logitech ERGO M575 Mouse With Ergonomic Design",
@@ -217,7 +238,8 @@
         "rating": 4.94,
         "quantity": 60,
         "tag": ["Logitech", "Mouse", "Ergonomics"],
-        "reviews": "I love this mouse, got it for my iMac"
+        "reviews": "I love this mouse, got it for my iMac",
+        "image": "ergonomics.png"
     },
     {
         "name": "Microsoft Sculpt Desktop Ergonomic Full Size Keyboard",
@@ -227,7 +249,8 @@
         "rating": 4.49,
         "quantity": 90,
         "tag": ["Microsoft", "Keyboard", "Ergonomics"],
-        "reviews": "so glad I found it, it is amazing!"
+        "reviews": "so glad I found it, it is amazing!",
+        "image": "ergonomics.png"
     },
     {
         "name": "Insignia Ergnomic Laptop Stand - Silver",
@@ -237,7 +260,8 @@
         "rating": 4.90,
         "quantity": 80,
         "tag": ["Laptop Stand", "Insignia", "Ergonomics"],
-        "reviews": "better elevates my laptop for the fan"
+        "reviews": "better elevates my laptop for the fan",
+        "image": "ergonomics.png"
     },
     {
         "name": "Razer Ergonomic Pro Wrist Rest",
@@ -247,6 +271,7 @@
         "rating": 4.97,
         "quantity": 230,
         "tag": ["Razer", "Wrist Rest", "Ergonomics"],
-        "reviews": "nice and comfy, well constructed"
+        "reviews": "nice and comfy, well constructed",
+        "image": "ergonomics.png"
     }
 ]

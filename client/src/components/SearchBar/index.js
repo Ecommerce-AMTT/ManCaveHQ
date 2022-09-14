@@ -6,7 +6,7 @@ import {
     Button,
 } from 'react-bootstrap';
 
-const searchBar = () => {
+const SearchBar = () => {
     return (
         <>
         <Container>
