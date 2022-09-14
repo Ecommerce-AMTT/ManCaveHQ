@@ -19,7 +19,9 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Loading from "./components/Loading";
+import Loading from "./components/Loading"
+import Homepage from "./pages/Homepage"
+
 
 import { changeT } from "./redux/translate";
 
@@ -65,7 +67,8 @@ function App() {
         <StoreProvider>
           <Navbar onChangeLang={onChangeLang} />
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Homepage />} />
+            <Route path='/products' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/success' element={<Success />} />

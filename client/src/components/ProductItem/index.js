@@ -42,13 +42,14 @@ function ProductItem(item) {
 
   return (
     <Card
-      className='p-2 m-3'
+      className='p-2 m-3 text-center'
       style={{
         width: "16rem",
         background:
           "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898",
       }}
     >
+
       <Link to={`/products/${_id}`}>
         <Card.Img alt={name} src={`/images/${image}`} />
         <Card.Text>{name}</Card.Text>
