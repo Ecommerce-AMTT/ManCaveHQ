@@ -8,8 +8,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
 
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
@@ -22,8 +21,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Loading from "./components/Loading";
 
-import { Dropdown } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
 import { changeT } from "./redux/translate";
 
 const httpLink = createHttpLink({
@@ -65,18 +62,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Dropdown>
-          <Dropdown.Toggle variant='success' id='dropdown-basic'>
-            <FontAwesomeIcon icon={faGlobe} />
-          </Dropdown.Toggle>
-          <Dropdown.Menu onClick={onChangeLang}>
-            <Dropdown.Item data-value='en'>English</Dropdown.Item>
-            <Dropdown.Item data-value='es'>Español</Dropdown.Item>
-            <Dropdown.Item data-value='fr'>Français</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
         <StoreProvider>
-          <Navbar />
+          <Navbar onChangeLang={onChangeLang} />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />

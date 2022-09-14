@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { Dropdown } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
 import Auth from "../utils/auth";
 import { useSelector } from "react-redux";
 
-const AppNavbar = () => {
+const Styles = styled.div`
+  button {
+    background-color: #343a40 !important;
+    border-color: #343a40 !important;
+  }
+`;
+
+export default function AppNavbar({ onChangeLang }) {
   const { t } = useSelector((state) => {
     // console.log("Contact.state ", state);
     return state.translate;
@@ -20,6 +31,18 @@ const AppNavbar = () => {
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
+          <Styles name='i18n-menu' id='Main'>
+            <Dropdown>
+              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                <FontAwesomeIcon icon={faGlobe} />
+              </Dropdown.Toggle>
+              <Dropdown.Menu onClick={onChangeLang}>
+                <Dropdown.Item data-value='en'>English</Dropdown.Item>
+                <Dropdown.Item data-value='es'>Español</Dropdown.Item>
+                <Dropdown.Item data-value='fr'>Français</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Styles>
           <Navbar.Brand as={Link} to='/' style={{ fontSize: 30 }}>
             MernCave HQ
           </Navbar.Brand>
@@ -91,6 +114,4 @@ const AppNavbar = () => {
       </Modal>
     </>
   );
-};
-
-export default AppNavbar;
+}
