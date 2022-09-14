@@ -24,10 +24,11 @@ SO THAT I can easily transition into my new job.
 
 
 ## Contributors
-Alberto Londono
-Tommy Lee
-Mason McCoy
-Tony Poku
+ - Alberto Londono
+ - Mason McCoy
+ - Tony Poku
+ - Tommy Lee
+
 
 ## Technology
 This site was built using the MERN stack.
