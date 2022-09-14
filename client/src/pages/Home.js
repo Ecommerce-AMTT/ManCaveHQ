@@ -8,7 +8,7 @@ import SearchBar from "../components/SearchBar";
 const Home = () => {
   return (
     <Container>
-      <SearchBar />
+      {/* <SearchBar /> */}
       <CategoryMenu />
       <ProductList />
       <Cart />
