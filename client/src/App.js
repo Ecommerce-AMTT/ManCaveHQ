@@ -21,6 +21,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Loading from "./components/Loading"
 import Homepage from "./pages/Homepage"
+import Footer from "./components/Footer";
 
 
 import { changeT } from "./redux/translate";
@@ -77,6 +78,7 @@ function App() {
             <Route path='/products/:id' element={<Detail />} />
             <Route path='*' element={<NoMatch />} />
           </Routes>
+          <Footer/>
         </StoreProvider>
       </Router>
     </ApolloProvider>
