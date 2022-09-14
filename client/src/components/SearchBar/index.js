@@ -10,6 +10,7 @@ const searchBar = () => {
     return (
         <>
         <Container>
+            <h1>Search for Products!</h1>
             <Form>
                 <Form.Row>
                     <Col>
