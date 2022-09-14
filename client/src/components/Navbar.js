@@ -50,7 +50,7 @@ export default function AppNavbar({ onChangeLang }) {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
+              <Nav.Link as={Link} to='/products'>
                 {t("Nav:search_product")}
               </Nav.Link>
               <Nav.Link as={Link} to='/about'>
