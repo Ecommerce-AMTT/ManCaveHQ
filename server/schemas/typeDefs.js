@@ -16,20 +16,6 @@ const typeDefs = gql`
     category: Category
   }
 
-  # type Product {
-  #   id: ID!
-  #   title: String!
-  #   description: String!
-  #   price: Int!
-  #   reviews: [Review]
-  #   discountPercentage: String
-  #   rating: String
-  #   brand: String
-  #   category: String
-  #   thumbnail: String
-  #   images: [String]
-  # }
-
   type Review {
     title: String
     rating: Int

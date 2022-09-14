@@ -1,15 +1,20 @@
 // see SignupForm.js for comments
 
-import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
 
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const LoginForm = () => {
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const { t } = useSelector((state) => {
+    // console.log("Contact.state ", state);
+    return state.translate;
+  });
+
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -50,8 +55,8 @@ const LoginForm = () => {
 
     // clear form values
     setUserFormData({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
 
@@ -62,48 +67,50 @@ const LoginForm = () => {
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
-          variant="danger"
+          variant='danger'
         >
           Something went wrong with your login credentials!
         </Alert>
 
         {/* login input field for email  */}
         <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Label htmlFor='email'>{t("Login:email")}</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="Your email"
-            name="email"
+            type='text'
+            placeholder={t("Login:your_email")}
+            name='email'
             onChange={handleInputChange}
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback type='invalid'>
             Email is required!
           </Form.Control.Feedback>
         </Form.Group>
 
         {/* login input field for password  */}
         <Form.Group>
-          <Form.Label className='mt-2' htmlFor="password">Password</Form.Label>
+          <Form.Label className='mt-2' htmlFor='password'>
+            {t("Login:password")}
+          </Form.Label>
           <Form.Control
-            type="password"
-            placeholder="Your password"
-            name="password"
+            type='password'
+            placeholder={t("Login:your_password")}
+            name='password'
             onChange={handleInputChange}
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
+          <Form.Control.Feedback type='invalid'>
+            {t("Login:password_required")}
           </Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={!(userFormData.email && userFormData.password)}
-          type="submit"
-          className="button-85 mt-3"
+          type='submit'
+          className='button-85 mt-3'
         >
-          Submit
+          {t("Login:submit")}
         </Button>
       </Form>
     </>

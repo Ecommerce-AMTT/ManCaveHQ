@@ -14,7 +14,7 @@ const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
-  const [getCheckout, { called, loading, data }] = useLazyQuery(QUERY_CHECKOUT);
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   // We check to see if there is a data object that exists, if so this means that a checkout session was returned from the backend
   // Then we should redirect to the checkout with a reference to our session id
@@ -24,7 +24,7 @@ const Cart = () => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
-  }, [called, loading, data]);
+  }, [data]);
 
   // If the cart's length or if the dispatch function is updated, check to see if the cart is empty.
   // If so, invoke the getCart method and populate the cart with the existing from the session

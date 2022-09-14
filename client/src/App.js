@@ -8,8 +8,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
 
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
@@ -23,9 +22,8 @@ import Contact from "./pages/Contact";
 import Loading from "./components/Loading"
 import Homepage from "./pages/Homepage"
 
-import { Dropdown } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { changeI18n, changeT } from "./redux/translate";
+
+import { changeT } from "./redux/translate";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -48,7 +46,7 @@ const client = new ApolloClient({
 
 function App() {
   // used to control i18n language setting
-  const { lang, setLang } = useState("en");
+  const [lang, setLang] = useState("en");
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
@@ -57,39 +55,17 @@ function App() {
     dispatch(changeT(t), []);
   });
 
-  const onChangeLang_old = (e) => {
-    i18n.changeLanguage(e.target.value);
-    // dispatch(changeI18n(i18nx));
-    dispatch(changeT(t));
-  };
-
   const onChangeLang = (e) => {
-    console.log("onChangeLang", e.target.getAttribute("data-value"));
     setLang(e.target.getAttribute("data-value"));
-    // i18n.changeLanguage(e.target.value);
+    i18n.changeLanguage(e.target.getAttribute("data-value"));
+    dispatch(changeT(t));
   };
 
   return (
     <ApolloProvider client={client}>
       <Router>
-        <select name='language' onChange={onChangeLang_old}>
-          <option value='en'></option>
-          <option value='es'></option>
-          <option value='fr'></option>
-        </select>
-        <Dropdown>
-          <Dropdown.Toggle variant='success' id='dropdown-basic'>
-            <FontAwesomeIcon icon={faGlobe} />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu onClick={onChangeLang}>
-            <Dropdown.Item data-value='en'>English</Dropdown.Item>
-            <Dropdown.Item data-value='es'>Español</Dropdown.Item>
-            <Dropdown.Item data-value='fr'>Français</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
         <StoreProvider>
-          <Navbar />
+          <Navbar onChangeLang={onChangeLang} />
           <Routes>
             <Route path='/' element={<Homepage />} />
             <Route path='/products' element={<Home />} />
@@ -97,7 +73,7 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path='/success' element={<Success />} />
             <Route path='/orderHistory' element={<OrderHistory />} />
-            <Route path="/loading" element={<Loading />} />
+            <Route path='/loading' element={<Loading />} />
             <Route path='/products/:id' element={<Detail />} />
             <Route path='*' element={<NoMatch />} />
           </Routes>
