@@ -2,40 +2,42 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function ItemCarousel() {
   return (
-    <Carousel>
-      <Carousel.Item >
+    <Carousel fade >
+      <Carousel.Item interval={3000}>
         <img
-          className="d-block w-100"
-          src="https://media.istockphoto.com/photos/powerful-personal-computer-gamer-rig-with-firstperson-shooter-game-on-picture-id1157159213?b=1&k=20&m=1157159213&s=612x612&w=0&h=Z3sY1M97pHENgm-4zxiHuXuDzAGKWCy3Qv9DGGvtDIU="
+          className="d-block w-100 caro-background"
+          src="../../assets/images/game-controller.jpg"
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <Carousel.Caption >
+        <h1 className='caro-text'>What We Are About: </h1>
+        <p className='caro-text'>Here at MernCave HQ we are here to provide you with various products to update your current setup.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item >
+      <Carousel.Item interval={3000}>
         <img
-          className="d-block w-100"
-          src="https://media.istockphoto.com/photos/gamer-work-space-concept-top-view-a-gaming-gear-mouse-keyboard-in-picture-id1170073824?b=1&k=20&m=1170073824&s=612x612&w=0&h=Fhzr8t9g76QzwEYTeR_8QPU3f21PzibCmAtndcBW7GQ="
+          className="d-block w-100 caro-background"
+          src="../../assets/images/razer.jpg"
           alt="Second slide"
         />
+
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h1 className='caro-text'>Our Goal:</h1>
+        <p className='caro-text'>Our goal is to set you up with the office or gaming setup of your dreams!</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item >
+      <Carousel.Item interval={3000}>
         <img
-          className="d-block w-100"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSnIn0SssDhrvB5brXGnYFkzP1QGgu3x-5NQ&usqp=CAU"
+          className="d-block w-100 caro-background"
+          src="https://www.simpleimageresizer.com/_uploads/photos/5af8c226/setup_1280x850.jpg"
           alt="Third slide"
         />
+
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3 className='caro-text'>What To Look For:</h3>
+          <p className='caro-text'>
+            Whether that is to replace an old mouse and keyboard, or to get a brand new monitor to render your videos or videogames at the highest quality possible,
+            you can find it here.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

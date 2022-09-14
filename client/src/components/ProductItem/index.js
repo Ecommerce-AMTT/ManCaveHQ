@@ -42,7 +42,7 @@ function ProductItem(item) {
 
   return (
     <Card
-      className='p-2 m-3 text-center'
+      className='p-2 m-3 text-center hover-card'
       style={{
         width: "16rem",
         background:

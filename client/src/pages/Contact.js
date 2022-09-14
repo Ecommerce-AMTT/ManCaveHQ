@@ -54,6 +54,7 @@ export default function Contact() {
         {t("Contact:contactForm")}
       </h2>
       <hr></hr>
+      
       <Container className="d-flex justify-content-center ">      
       <form id='contact-form'>
         <div className='mt-5'>
