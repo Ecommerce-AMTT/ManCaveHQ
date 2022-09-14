@@ -34,10 +34,9 @@ function ItemCarousel() {
         />
 
         <Carousel.Caption>
-          <h3 className='caro-text'>What To Look For:</h3>
+          <h3 className='caro-text'>Your Next setup:</h3>
           <p className='caro-text'>
-            Whether that is to replace an old mouse and keyboard, or to get a brand new monitor to render your videos or videogames at the highest quality possible,
-            you can find it here.</p>
+            Now is the best time to upgrade your setup!</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
