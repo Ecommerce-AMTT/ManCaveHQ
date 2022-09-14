@@ -38,6 +38,11 @@ const resolvers = {
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
+        //clean out orders with no product
+        user.orders = user.orders.filter(
+          (order) => order.products && order.products.length > 0
+        );
+
         return user;
       }
 
@@ -98,23 +103,58 @@ const resolvers = {
       const token = signToken(user);
 
       sendmail(
-        "mmasonmccoy@gmail.com, londono.alberto110@gmail.com, t.k.hobbes43@gmail.com, tonypoku@gmail.com", //TODO: This should be user.email, but for testing sake...
+        `${user.email}`,
         `${user.email} has been successfully registered on MernCaveHQ`,
-        "You are well on your journey to lighting the cave"
+        "You are well on your journey to lighting the cave",
+        `mmasonmccoy@gmail.com, londono.alberto110@gmail.com, t.k.hobbes43@gmail.com, tonypoku@gmail.com`
       );
 
       return { token, user };
     },
     addOrder: async (parent, { products }, context) => {
-      console.log(context);
-      if (context.user) {
-        const order = new Order({ products });
+      try {
+        console.log("products@server: ", products);
+        const product_ids = products.map((product) => product._id);
+        console.log("product_ids@server: ", product_ids);
+        if (context.user) {
+          const order = new Order({ products: product_ids });
+          console.log("order@server: ", order);
 
-        await User.findByIdAndUpdate(context.user._id, {
-          $push: { orders: order },
-        });
+          await User.findByIdAndUpdate(context.user._id, {
+            $push: { orders: order },
+          });
 
-        return order;
+          sendmail(
+            `${context.user.email}`,
+            `Your MerncaveHQ order ${order._id}`,
+            `<p>
+          <h2>Hello ${context.user.email.split("@")[0]}</h2>
+          <br>Thank you for shopping with us. We'll send a confirmation when your items have shipped
+          <br><H2>Details:</H2>
+          <hr>
+          <ul>
+            ${products.map((product) => {
+              console.log("product_detail", product);
+
+              return (
+                "<li>" +
+                product.quantity +
+                " units of " +
+                product.name +
+                " Total: " +
+                product.price +
+                "</li>"
+              );
+            })}
+          </ul>
+          </p>`,
+            `mmasonmccoy@gmail.com, londono.alberto110@gmail.com, t.k.hobbes43@gmail.com, tonypoku@gmail.com`
+          );
+
+          return order;
+        }
+      } catch (error) {
+        console.error(error);
       }
 
       throw new AuthenticationError("Not logged in");
