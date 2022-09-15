@@ -49,7 +49,16 @@ export default function CategoryMenu() {
 
   return (
     <Container>
-      <h2 className='mb-2'>{t("Menu:choose_category")}:</h2>
+      <h2 className='mb-2'>{t("Menu:choose_category")}: <Button
+          style={{background: 'rgb(139, 42, 42)', borderColor: 'rgb(139, 42, 42)'}}
+          size="sm"
+          onClick={() => {
+            handleClick()
+          }}
+        >
+          Reset
+        </Button></h2>
+      
       <div>
         {categories.map((item) => (
           <Button
@@ -62,17 +71,6 @@ export default function CategoryMenu() {
             {item.name}
           </Button>
         ))}
-      </div>
-      <div>
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={() => {
-            handleClick()
-          }}
-        >
-          RESET
-        </Button>
       </div>
     </Container>
   );
