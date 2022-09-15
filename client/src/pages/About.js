@@ -11,7 +11,7 @@ export default function About() {
   return (
     <Container className='d-flex flex-wrap justify-content-center align-content-center'>
       <Card
-        className='m-3 p-2 about-card'
+        className='m-3 p-2 hover-card'
         style={{
           width: "18rem",
           background:
@@ -55,7 +55,7 @@ export default function About() {
       </Card>
 
       <Card
-        className='m-3 p-2'
+        className='m-3 p-2 hover-card'
         style={{
           width: "18rem",
           background:
@@ -99,7 +99,7 @@ export default function About() {
       </Card>
 
       <Card
-        className='m-3 p-2'
+        className='m-3 p-2 hover-card'
         style={{
           width: "18rem",
           background:
@@ -143,7 +143,7 @@ export default function About() {
       </Card>
 
       <Card
-        className='m-3 p-2'
+        className='m-3 p-2 hover-card'
         style={{
           width: "18rem",
           background:

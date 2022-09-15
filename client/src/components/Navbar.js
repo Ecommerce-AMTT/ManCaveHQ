@@ -7,7 +7,7 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
-
+// import SearchBar from "../components/SearchBar";
 import Auth from "../utils/auth";
 import { useSelector } from "react-redux";
 
@@ -44,7 +44,13 @@ export default function AppNavbar({ onChangeLang }) {
             </Dropdown>
           </DropdownStyles>
           <Navbar.Brand as={Link} to='/' style={{ fontSize: 30 }}>
-            MernCave HQ
+            <img
+              src='../assets/images/merncavehqlogo.png'
+              height="95"
+              width="180"
+              className="d-inline-block align-top"
+              alt="MernCave HQ Logo"
+              />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls='navbar' />
@@ -76,6 +82,7 @@ export default function AppNavbar({ onChangeLang }) {
               )}
             </Nav>
           </Navbar.Collapse>
+          {/* <SearchBar /> */}
         </Container>
       </Navbar>
       {/* set modal data up */}
@@ -91,7 +98,7 @@ export default function AppNavbar({ onChangeLang }) {
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
-                <Nav.Item>
+                <Nav.Item >
                   <Nav.Link eventKey='login'>{t("Nav:login")}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>

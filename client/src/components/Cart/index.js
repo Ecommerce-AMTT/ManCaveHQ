@@ -67,9 +67,15 @@ const Cart = () => {
     });
   }
 
+  
+
+
+// onMouseDown onMouseEnter onMouseLeave
+// onMouseMove onMouseOut onMouseOver onMouseUp
+
   if (!state.cartOpen) {
     return (
-      <div className='cart-closed' onClick={toggleCart}>
+      <div className='cart-closed' onMouseOver={toggleCart} onMouseOut={toggleCart}>
         <i className='fa fa-shopping-cart' aria-hidden='true'></i>
       </div>
     );
@@ -77,7 +83,7 @@ const Cart = () => {
 
   return (
     <div className='cart'>
-      <div className='close' onClick={toggleCart}>
+      <div className='close' onMouseEnter={toggleCart} onMouseOut={toggleCart}>
         <i className='fa fa-times' aria-hidden='true'></i>
       </div>
       <h2>Shopping Cart</h2>
