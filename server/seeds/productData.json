@@ -273,5 +273,60 @@
         "tag": ["Razer", "Wrist Rest", "Ergonomics"],
         "reviews": "nice and comfy, well constructed",
         "image": "ergonomics.png"
+    },
+    {
+        "name": "Edifier R128OT Powered Speakers",
+        "description": "I'll knock your socks off!",
+        "price": 119.99,
+        "category_name": "Speakers",
+        "rating": 4.99,
+        "quantity": 229,
+        "tag": ["Edifier", "Speakers"],
+        "reviews": "Amazing for the price!",
+        "image": "Computer-Speakers.jpg"
+    },
+    {
+        "name": "Logitech Z200 2.0 Multimedia Speakers",
+        "description": "the sound is very loud, wasn't expecting that, nice surprise",
+        "price": 39.99,
+        "category_name": "Speakers",
+        "rating": 4.5,
+        "quantity": 108,
+        "tag": ["Logitech", "Multimedia", "Speakers"],
+        "reviews": "it works",
+        "image": "Computer-Speakers.jpg"
+    },
+    {
+        "name": "Bose Companion 2 Series III Multimedia Speakers",
+        "description": "Bose rhymes with nose",
+        "price": 149.99,
+        "category_name": "Speakers",
+        "rating": 4.90,
+        "quantity": 50,
+        "tag": ["Bose", "Multimedia", "Speakers"],
+        "reviews": "I love the versatility",
+        "image": "Computer-Speakers.jpg"
+    },
+    {
+        "name": "Logitech Z313 2.1-Channel Speaker",
+        "description": "Only the prepared speaker deserves to be confident",
+        "price": 59.99,
+        "category_name": "Speakers",
+        "rating": 4.97,
+        "quantity": 100,
+        "tag": ["Logitech", "Speakers"],
+        "reviews": "excellent value, only issue is we don't like the cables that came with it",
+        "image": "Computer-Speakers.jpg"
+    },
+    {
+        "name": "Altec Lansing - Soundpro Elite RGB Gaming Speaker Set",
+        "description": "All the great speakers were bad speakers at first",
+        "price": 26.99,
+        "category_name": "Speakers",
+        "rating": 4.10,
+        "quantity": 30,
+        "tag": ["Altec Lansing", "Speakers"],
+        "reviews": "the speakers are amazing for gaming",
+        "image": "Computer-Speakers.jpg"
     }
 ]

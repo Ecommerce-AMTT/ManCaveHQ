@@ -7,7 +7,7 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
-
+import SearchBar from "../components/SearchBar";
 import Auth from "../utils/auth";
 import { useSelector } from "react-redux";
 
@@ -76,6 +76,7 @@ export default function AppNavbar({ onChangeLang }) {
               )}
             </Nav>
           </Navbar.Collapse>
+          {/* <SearchBar /> */}
         </Container>
       </Navbar>
       {/* set modal data up */}
