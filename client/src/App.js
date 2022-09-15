@@ -19,11 +19,11 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Loading from "./components/Loading"
-import Homepage from "./pages/Homepage"
-
+import Loading from "./components/Loading";
+import Homepage from "./pages/Homepage";
 
 import { changeT } from "./redux/translate";
+import ProductReviews from "./pages/ProductReviews";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -75,6 +75,7 @@ function App() {
             <Route path='/orderHistory' element={<OrderHistory />} />
             <Route path='/loading' element={<Loading />} />
             <Route path='/products/:id' element={<Detail />} />
+            <Route path='/products/:id/:reviews' element={<ProductReviews />} />
             <Route path='*' element={<NoMatch />} />
           </Routes>
         </StoreProvider>

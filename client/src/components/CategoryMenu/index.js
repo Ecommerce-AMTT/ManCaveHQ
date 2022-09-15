@@ -59,7 +59,7 @@ export default function CategoryMenu() {
             handleClick(item._id);
           }}
         >
-          {item.name}
+          {t("Category:" + item.name?.replace(" ", "-"))}
         </Button>
       ))}
     </Container>

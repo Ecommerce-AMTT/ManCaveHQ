@@ -11,7 +11,7 @@ import LoginForm from "./LoginForm";
 import Auth from "../utils/auth";
 import { useSelector } from "react-redux";
 
-const Styles = styled.div`
+const DropdownStyles = styled.div`
   button {
     background-color: #343a40 !important;
     border-color: #343a40 !important;
@@ -31,7 +31,7 @@ export default function AppNavbar({ onChangeLang }) {
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
-          <Styles name='i18n-menu' id='Main'>
+          <DropdownStyles name='i18n-menu' id='Main'>
             <Dropdown>
               <Dropdown.Toggle variant='success' id='dropdown-basic'>
                 <FontAwesomeIcon icon={faGlobe} />
@@ -42,7 +42,7 @@ export default function AppNavbar({ onChangeLang }) {
                 <Dropdown.Item data-value='fr'>Français</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-          </Styles>
+          </DropdownStyles>
           <Navbar.Brand as={Link} to='/' style={{ fontSize: 30 }}>
             MernCave HQ
           </Navbar.Brand>
