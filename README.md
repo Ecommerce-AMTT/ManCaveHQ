@@ -21,7 +21,9 @@ SO THAT I can easily transition into my new job.
 ```
 
 ## Usage
+Please just click on the below button to take you to the Heroku deployed app!
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://merncavehq.herokuapp.com/)
 
 ## Contributors
  - Alberto Londono
