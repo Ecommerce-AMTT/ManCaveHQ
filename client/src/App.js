@@ -22,6 +22,7 @@ import Contact from "./pages/Contact";
 import Loading from "./components/Loading"
 import Homepage from "./pages/Homepage"
 import Footer from "./components/Footer";
+import Construction from "./pages/Construction";
 
 
 import { changeT } from "./redux/translate";
@@ -76,6 +77,7 @@ function App() {
             <Route path='/orderHistory' element={<OrderHistory />} />
             <Route path='/loading' element={<Loading />} />
             <Route path='/products/:id' element={<Detail />} />
+            <Route path='/construction' element={<Construction />} />
             <Route path='*' element={<NoMatch />} />
           </Routes>
           <Footer/>

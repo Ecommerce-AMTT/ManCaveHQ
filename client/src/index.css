@@ -184,19 +184,6 @@ input:focus {
   padding-bottom: var(--spacing-two);
 }
 
-/* .footer {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  font-size: 1rem;
-} */
-
-.footer-icons {
-  font-size: 30px;
-  color:white;
-  margin-right: 5px;
-}
-
 .hover-card:hover:before {
   content: "";
   background: linear-gradient(
