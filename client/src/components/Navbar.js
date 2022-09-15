@@ -65,12 +65,12 @@ export default function AppNavbar({ onChangeLang }) {
                   <Nav.Link as={Link} to='/orderHistory'>
                     {t("Nav:order_history")}
                   </Nav.Link>
-                  <Nav.Link className='mr-5' onClick={Auth.logout}>
+                  <Nav.Link  onClick={Auth.logout}>
                     {t("Nav:logout")}
                   </Nav.Link>
                 </>
               ) : (
-                <Nav.Link className='mr-5' onClick={() => setShowModal(true)}>
+                <Nav.Link  onClick={() => setShowModal(true)}>
                   {t("Nav:login_signup")}
                 </Nav.Link>
               )}
