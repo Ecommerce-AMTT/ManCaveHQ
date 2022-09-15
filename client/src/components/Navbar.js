@@ -7,7 +7,7 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
-import SearchBar from "../components/SearchBar";
+// import SearchBar from "../components/SearchBar";
 import Auth from "../utils/auth";
 import { useSelector } from "react-redux";
 
@@ -44,7 +44,13 @@ export default function AppNavbar({ onChangeLang }) {
             </Dropdown>
           </Styles>
           <Navbar.Brand as={Link} to='/' style={{ fontSize: 30 }}>
-            MernCave HQ
+            <img
+              src='../assets/images/merncavehqlogo.png'
+              height="95"
+              width="180"
+              className="d-inline-block align-top"
+              alt="MernCave HQ Logo"
+              />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls='navbar' />
