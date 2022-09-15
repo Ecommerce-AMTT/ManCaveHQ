@@ -52,7 +52,7 @@ export default function ProductList() {
 
   return (
     <Container>
-      <h2 className='mt-2'>{t("Menu:our_products")}:</h2>
+      <h2 className='mt-4'>{t("Menu:our_products")}:</h2>
       {state.products.length ? (
         <div className='flex-row'>
           {filterProducts().map((product) => (
