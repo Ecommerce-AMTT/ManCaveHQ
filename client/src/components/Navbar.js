@@ -91,7 +91,7 @@ export default function AppNavbar({ onChangeLang }) {
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
-                <Nav.Item>
+                <Nav.Item >
                   <Nav.Link eventKey='login'>{t("Nav:login")}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
