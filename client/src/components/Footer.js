@@ -22,10 +22,10 @@ export default function Footer() {
             <p>Terms Of Service</p>
           </a>
           <a href="/construction">
-            <p> FAQ</p>
+          <p> Privacy Policy</p>
           </a>
           <a href="/construction">
-            <p> Privacy Policy</p>
+          <p> FAQ</p>
           </a>
         </Col>
       </Row>
