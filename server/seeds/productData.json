@@ -8,7 +8,7 @@
         "quantity": 10,
         "tag": ["HP", "Monitor"],
         "reviews": "solid, sleak, would buy again",
-        "image": "computer-monitor.jpg"
+        "image": "monitors.jpg"
     },
     {
         "name": "Samsung Computer Monitor",
@@ -19,7 +19,7 @@
         "quantity": 110,
         "tag": ["Samsung", "Monitor"],
         "reviews": "Stunning, immersive",
-        "image": "computer-monitor.jpg"
+        "image": "monitors.jpg"
     },
     {
         "name": "LG Computer Monitor",
@@ -30,7 +30,7 @@
         "quantity": 209,
         "tag": ["LG", "Monitor"],
         "reviews": "Excellent monitor for the price",
-        "image": "computer-monitor.jpg"
+        "image": "monitors.jpg"
     },
     {
         "name": "Lenovo Computer Monitor",
@@ -41,7 +41,7 @@
         "quantity": 0,
         "tag": ["Lenovo", "Monitor"],
         "reviews": "solid, sleak, would buy again",
-        "image": "computer-monitor.jpg"
+        "image": "monitors.jpg"
     },
     {
         "name": "Sony Computer Monitor",
@@ -52,7 +52,7 @@
         "quantity": 22,
         "tag": ["HP", "Monitor"],
         "reviews": "Love it, bought 2 for my home office",
-        "image": "computer-monitor.jpg"
+        "image": "monitors.jpg"
     },
     {
         "name": "Insignia Ethernet Cable",
@@ -118,7 +118,7 @@
         "quantity": 199,
         "tag": ["Bluetooth", "BlueParrot", "Headset"],
         "reviews": "best headset I've ever owned",
-        "image": "Bluetooth.png"
+        "image": "bluetooth.png"
     },
     {
         "name": "Sony Digital Bluetooth Wireless Microphone",
@@ -129,7 +129,7 @@
         "quantity": 123,
         "tag": ["Bluetooth", "Sony", "Microphone"],
         "reviews": "really love the holder that helps it from getting lost",
-        "image": "Bluetooth.png"
+        "image": "bluetooth.png"
     },
     {
         "name": "Bose SoundLink Flex Portable Speaker",
@@ -140,7 +140,7 @@
         "quantity": 45,
         "tag": ["Bluetooth", "Bose", "Waterproof"],
         "reviews": "Bose is superior to JBL & Sony!",
-        "image": "Bluetooth.png"
+        "image": "bluetooth.png"
     },
     {
         "name": "Logitech Anywhere 3 Wireless Mouse",
@@ -151,7 +151,7 @@
         "quantity": 300,
         "tag": ["Bluetooth", "Logitech", "Mouse"],
         "reviews": "this feels pleasant in the hand, nice and small",
-        "image": "Bluetooth.png"
+        "image": "bluetooth.png"
     },
     {
         "name": "ASUS Bluetooth Smart Ready USB Adapter",
@@ -162,7 +162,7 @@
         "quantity": 12,
         "tag": ["Bluetooth", "ASUS"],
         "reviews": "works perfectly",
-        "image": "Bluetooth.png"
+        "image": "bluetooth.png"
     },
     {
         "name": "Microsoft Full Size Mechanical Keyboard",
@@ -283,7 +283,7 @@
         "quantity": 229,
         "tag": ["Edifier", "Speakers"],
         "reviews": "Amazing for the price!",
-        "image": "Computer-Speakers.jpg"
+        "image": "speakers.jpg"
     },
     {
         "name": "Logitech Z200 2.0 Multimedia Speakers",
@@ -294,7 +294,7 @@
         "quantity": 108,
         "tag": ["Logitech", "Multimedia", "Speakers"],
         "reviews": "it works",
-        "image": "Computer-Speakers.jpg"
+        "image": "speakers.jpg"
     },
     {
         "name": "Bose Companion 2 Series III Multimedia Speakers",
@@ -305,7 +305,7 @@
         "quantity": 50,
         "tag": ["Bose", "Multimedia", "Speakers"],
         "reviews": "I love the versatility",
-        "image": "Computer-Speakers.jpg"
+        "image": "speakers.jpg"
     },
     {
         "name": "Logitech Z313 2.1-Channel Speaker",
@@ -316,7 +316,7 @@
         "quantity": 100,
         "tag": ["Logitech", "Speakers"],
         "reviews": "excellent value, only issue is we don't like the cables that came with it",
-        "image": "Computer-Speakers.jpg"
+        "image": "speakers.jpg"
     },
     {
         "name": "Altec Lansing - Soundpro Elite RGB Gaming Speaker Set",
@@ -327,6 +327,6 @@
         "quantity": 30,
         "tag": ["Altec Lansing", "Speakers"],
         "reviews": "the speakers are amazing for gaming",
-        "image": "Computer-Speakers.jpg"
+        "image": "speakers.jpg"
     }
 ]
