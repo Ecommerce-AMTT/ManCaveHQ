@@ -19,13 +19,14 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Loading from "./components/Loading"
-import Homepage from "./pages/Homepage"
+import Loading from "./components/Loading";
+import Homepage from "./pages/Homepage";
 import Footer from "./components/Footer";
 import Construction from "./pages/Construction";
 
 import { changeT } from "./redux/translate";
 import ProductReviews from "./pages/ProductReviews";
+import { Container } from "react-bootstrap";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -68,20 +69,25 @@ function App() {
       <Router>
         <StoreProvider>
           <Navbar onChangeLang={onChangeLang} />
-          <Routes>
-            <Route path='/' element={<Homepage />} />
-            <Route path='/products' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/success' element={<Success />} />
-            <Route path='/orderHistory' element={<OrderHistory />} />
-            <Route path='/loading' element={<Loading />} />
-            <Route path='/products/:id' element={<Detail />} />
-            <Route path='/products/:id/:reviews' element={<ProductReviews />} />
-            <Route path='/construction' element={<Construction />} />
-            <Route path='*' element={<NoMatch />} />
-          </Routes>
-          <Footer/>
+          <Container id='MainBodyContainer' style={{ minHeight: "75vh" }}>
+            <Routes>
+              <Route path='/' element={<Homepage />} />
+              <Route path='/products' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/success' element={<Success />} />
+              <Route path='/orderHistory' element={<OrderHistory />} />
+              <Route path='/loading' element={<Loading />} />
+              <Route path='/products/:id' element={<Detail />} />
+              <Route
+                path='/products/:id/:reviews'
+                element={<ProductReviews />}
+              />
+              <Route path='/construction' element={<Construction />} />
+              <Route path='*' element={<NoMatch />} />
+            </Routes>
+          </Container>
+          <Footer />
         </StoreProvider>
       </Router>
     </ApolloProvider>

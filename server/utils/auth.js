@@ -1,7 +1,8 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
-const secret = 'TfcIELfsRhKISbk6hcBnVTRW7l9V4zCHusN8RZuWE1pIn4Ea29qQ/X//KGT8oyzCrRNhxZL8ioUelo2TsFADAA';
-const expiration = '5m';
+const secret =
+  "TfcIELfsRhKISbk6hcBnVTRW7l9V4zCHusN8RZuWE1pIn4Ea29qQ/X//KGT8oyzCrRNhxZL8ioUelo2TsFADAA";
+const expiration = "30m";
 
 module.exports = {
   authMiddleware: function ({ req }) {
@@ -10,7 +11,7 @@ module.exports = {
 
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
-      token = token.split(' ').pop().trim();
+      token = token.split(" ").pop().trim();
     }
 
     if (!token) {
@@ -21,7 +22,7 @@ module.exports = {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {
-      return
+      return;
     }
 
     return req;
