@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
@@ -14,8 +14,6 @@ function ProductItem(item) {
   });
 
   const [state, dispatch] = useStoreContext();
-
-  const location = useLocation();
 
   const { image, name, _id, price, quantity } = item;
 
@@ -52,7 +50,7 @@ function ProductItem(item) {
       }}
     >
 
-      <Link to={{ pathname: `/products/${_id}`, state: {prevPath: location} }}>
+      <Link to={`/products/${_id}`}>
         <Card.Img alt={name} src={`/images/${image}`} />
         <Card.Text>{name}</Card.Text>
       </Link>
