@@ -3,15 +3,16 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
-
+import Moment from "react-moment";
 import { SAVE_REVIEW } from "../utils/mutations";
-import StarRating from "./StarRating";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 import { QUERY_PRODUCT } from "../utils/queries";
 import Loading from "../components/Loading";
-import Moment from "react-moment";
+import StarRating from "./StarRating";
+import StarRatingDisabled from "./StarRatingDisabled";
+import Auth from "../utils/auth";
 
 const NewReviewStyles = styled.div`
   .card {
@@ -21,20 +22,22 @@ const NewReviewStyles = styled.div`
   }
 
   .card-img {
-    width: 60%;
+    margin-top: 1rem;
+    width: 40%;
     align-self: center;
   }
 
   .card-body {
     width: 60%;
     align-self: center;
-    padding: 2rem;
+    padding: 2rem 2rem 2rem 9rem;
   }
 
   .container {
-    margin-top: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
     color: #f7f2f2;
-    width: 60%;
+    width: 70%;
   }
 
   #ReviewNewCard {
@@ -97,18 +100,14 @@ export default function ProductReviews() {
 
   const handleChangeComment = (e) => {
     const comment = e.target.value;
-    console.log("comment", comment);
-
     setComment(comment);
   };
 
   const handleMouseEnter = (hoverValue) => {
-    console.log("mouseenter event");
     setHoverValue(hoverValue);
   };
 
   const handleMouseLeave = () => {
-    console.log("mouseleave event");
     setHoverValue(undefined);
   };
 
@@ -116,13 +115,7 @@ export default function ProductReviews() {
   const [saveReview] = useMutation(SAVE_REVIEW);
 
   const handleSave = async () => {
-    console.log("handleSave.comment", comment);
-
     if (comment && currentRating) {
-      console.log("comment", comment);
-      console.log("currentRating", currentRating);
-      console.log("_id", id);
-
       const { data } = await saveReview({
         variables: { id, currentRating, comment },
       });
@@ -138,12 +131,10 @@ export default function ProductReviews() {
   });
 
   if (error) {
-    console.error("GraphqlError.QUERY_PRODUCT", error);
+    // console.error("GraphqlError.QUERY_PRODUCT", error);
   } else if (loading) {
-    console.log("Still loading...");
     return <Loading />;
   } else {
-    console.log("reviews.length = ", reviews.length);
     if (reviews.length === 0) {
       setReviews(data.product.reviews);
     }
@@ -151,49 +142,53 @@ export default function ProductReviews() {
 
   return (
     <>
-      <NewReviewStyles>
-        <Container>
-          <Card id='ReviewNewCard'>
-            <Card.Header>
-              <h3>Product Review</h3>
-            </Card.Header>
-            <Card.Header>
-              <h4>{data.product.description}</h4>
-            </Card.Header>
-            <Card.Img
-              src={`/images/${data.product.image}`}
-              alt={data.product.name}
-            />
-            <Card.Body>
-              <StarRating
-                hoverIndex={hoverValue || currentRating}
-                handleClickRating={handleClickRating}
-                handleMouseEnter={handleMouseEnter}
-                handleMouseLeave={handleMouseLeave}
-                starCount={5}
-              ></StarRating>
-            </Card.Body>
-            <Card.Footer>
-              <textarea
-                placeholder='Please provide a comment'
-                rows={6}
-                id='ReviewComment'
-                onChange={handleChangeComment}
-              ></textarea>
-            </Card.Footer>
-            <Card.Footer>
-              <Button
-                id='btnSave'
-                variant='secondary'
-                onClick={handleSave}
-                disabled={!(comment && currentRating)}
-              >
-                Save
-              </Button>
-            </Card.Footer>
-          </Card>
-        </Container>
-      </NewReviewStyles>
+      {Auth.loggedIn() && (
+        <NewReviewStyles>
+          <Container>
+            <Card id='ReviewNewCard'>
+              <Card.Header>
+                <h3>Product Review</h3>
+              </Card.Header>
+              <Card.Header>
+                <h5 style={{ paddingLeft: "2rem" }}>
+                  {data.product.description}
+                </h5>
+              </Card.Header>
+              <Card.Img
+                src={`/images/${data.product.image}`}
+                alt={data.product.name}
+              />
+              <Card.Body>
+                <StarRating
+                  hoverIndex={hoverValue || currentRating}
+                  handleClickRating={handleClickRating}
+                  handleMouseEnter={handleMouseEnter}
+                  handleMouseLeave={handleMouseLeave}
+                  starCount={5}
+                ></StarRating>
+              </Card.Body>
+              <Card.Footer>
+                <textarea
+                  placeholder='Please provide a comment'
+                  rows={6}
+                  id='ReviewComment'
+                  onChange={handleChangeComment}
+                ></textarea>
+              </Card.Footer>
+              <Card.Footer>
+                <Button
+                  id='btnSave'
+                  variant='secondary'
+                  onClick={handleSave}
+                  disabled={!(comment && currentRating)}
+                >
+                  Save
+                </Button>
+              </Card.Footer>
+            </Card>
+          </Container>
+        </NewReviewStyles>
+      )}
       {reviews.length > 0 && (
         <OldReviewStyles>
           <Container>
@@ -202,19 +197,18 @@ export default function ProductReviews() {
                 <Container key={index}>
                   <Card id='ReviewOldCard'>
                     <Card.Header>
-                      <StarRating
+                      <StarRatingDisabled
                         starCount={5}
                         hoverIndex={review.currentRating}
-                        handleClickRating={(() => {})()}
-                        handleMouseEnter={(() => {})()}
-                        handleMouseLeave={(() => {})()}
-                      ></StarRating>
+                      ></StarRatingDisabled>
                     </Card.Header>
                     <Card.Body>
                       <p>{review.comment}</p>
                     </Card.Body>
                     <Card.Footer>
-                      <Moment utc>{parseInt(review.createdAt)}</Moment>
+                      <Moment local format='D MMM YYYY hh:mm A'>
+                        {parseInt(review.createdAt)}
+                      </Moment>
                     </Card.Footer>
                   </Card>
                 </Container>

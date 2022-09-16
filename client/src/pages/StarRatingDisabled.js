@@ -1,13 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function StarRating({
-  handleMouseLeave,
-  handleMouseEnter,
-  handleClickRating,
-  hoverIndex,
-  starCount,
-}) {
+export default function StarRatingDisabled({ hoverIndex, starCount }) {
   return (
     <>
       {" "}
@@ -25,9 +19,6 @@ export default function StarRating({
                   color: hoverIndex > index ? "orange" : "gray",
                   height: "2rem",
                 }}
-                onClick={() => handleClickRating(index + 1)}
-                onMouseEnter={() => handleMouseEnter(index + 1)}
-                onMouseLeave={handleMouseLeave}
               />
             );
           })}
