@@ -32,7 +32,7 @@ function Success() {
         }
 
         setTimeout(() => {
-          window.location.assign("/");
+          window.location.assign("/orderHistory");
         }, 3000);
       } catch (error) {
         console.log(error);

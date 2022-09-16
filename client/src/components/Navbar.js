@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 
 const DropdownStyles = styled.div`
   button {
+    font-size: 1.3rem;
     background-color: #343a40 !important;
     border-color: #343a40 !important;
   }
@@ -33,7 +34,7 @@ export default function AppNavbar({ onChangeLang }) {
         <Container fluid>
           <DropdownStyles name='i18n-menu' id='Main'>
             <Dropdown>
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              <Dropdown.Toggle className="hover-card" variant='success' id='dropdown-basic'>
                 <FontAwesomeIcon icon={faGlobe} />
               </Dropdown.Toggle>
               <Dropdown.Menu onClick={onChangeLang}>
@@ -46,8 +47,8 @@ export default function AppNavbar({ onChangeLang }) {
           <Navbar.Brand as={Link} to='/' style={{ fontSize: 30 }}>
             <img
               src='../assets/images/merncavehqlogo.png'
-              height="95"
-              width="180"
+              height="70"
+              width="140"
               className="d-inline-block align-top"
               alt="MernCave HQ Logo"
               />

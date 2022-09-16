@@ -81,6 +81,11 @@ header a {
   background-color: #111;
 }
 
+.oh-button:hover {
+  opacity: 0.8;
+  background-color: rgb(165, 23, 23)
+}
+
 button {
   font-size: 1rem;
   text-decoration: none;
@@ -90,7 +95,7 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: rgb(187, 17, 17);
+  background-color: rgb(139, 42, 42);
 }
 
 button:hover {

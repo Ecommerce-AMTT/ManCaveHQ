@@ -50,7 +50,8 @@ export default function CategoryMenu() {
   return (
     <Container>
       <h2 className='mt-4 mb-4'>{t("Menu:choose_category")}: <Button
-          style={{background: 'rgb(139, 42, 42)', borderColor: 'rgb(139, 42, 42)'}}
+          style={{background: 'rgb(139, 42, 42)', 
+          borderColor: "rgb(139, 42, 42)"}}
           size="sm"
           onClick={() => {
             handleClick()
