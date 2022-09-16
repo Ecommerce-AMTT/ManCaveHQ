@@ -214,7 +214,7 @@ export default function ProductReviews() {
                       <p>{review.comment}</p>
                     </Card.Body>
                     <Card.Footer>
-                      <Moment unix>{review.createdAt}</Moment>
+                      <Moment utc>{parseInt(review.createdAt)}</Moment>
                     </Card.Footer>
                   </Card>
                 </Container>

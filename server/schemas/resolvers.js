@@ -200,10 +200,6 @@ const resolvers = {
         user: context.user._id,
       }); // "6323781500df2d82ac0a9601"
 
-      review.save();
-
-      review.populate("user");
-
       const product = await Product.findByIdAndUpdate(_id, {
         $push: {
           reviews: review.toJSON(),
