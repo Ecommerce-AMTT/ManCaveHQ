@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { QUERY_PRODUCT } from "../utils/queries";
 import Loading from "../components/Loading";
+import Moment from "react-moment";
 
 const NewReviewStyles = styled.div`
   .card {
@@ -77,6 +78,10 @@ const OldReviewStyles = styled.div`
     width: 100%;
     min-height: 40px;
     background-color: #343a40;
+  }
+
+  .card-footer {
+    text-align: end;
   }
 `;
 
@@ -208,6 +213,9 @@ export default function ProductReviews() {
                     <Card.Body>
                       <p>{review.comment}</p>
                     </Card.Body>
+                    <Card.Footer>
+                      <Moment unix>{review.createdAt}</Moment>
+                    </Card.Footer>
                   </Card>
                 </Container>
               );

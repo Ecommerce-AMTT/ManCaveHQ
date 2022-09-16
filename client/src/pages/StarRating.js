@@ -11,7 +11,7 @@ export default function StarRating({
   return (
     <>
       {" "}
-      <div>
+      <div style={{ paddingLeft: "3rem" }}>
         {Array(starCount)
           .fill(0)
           .map((_, index) => {

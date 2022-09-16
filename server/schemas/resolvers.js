@@ -197,7 +197,7 @@ const resolvers = {
       const review = new Review({
         currentRating,
         comment,
-        user: "6323781500df2d82ac0a9601",
+        user: context.user._id,
       }); // "6323781500df2d82ac0a9601"
 
       review.save();
@@ -210,7 +210,7 @@ const resolvers = {
         },
       });
 
-      return product.populate("reviews", "reviews.user");
+      return product.populate("reviews");
     },
   },
 };

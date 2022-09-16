@@ -68,6 +68,7 @@ export const SAVE_REVIEW = gql`
         _id
         currentRating
         comment
+        createdAt
         user
       }
     }

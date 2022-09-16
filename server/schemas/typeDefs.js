@@ -22,6 +22,7 @@ const typeDefs = gql`
     currentRating: Int
     comment: String
     user: ID
+    createdAt: String
   }
 
   type Tag {

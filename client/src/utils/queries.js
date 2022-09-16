@@ -32,6 +32,7 @@ export const QUERY_PRODUCT = gql`
         _id
         currentRating
         comment
+        createdAt
         user
       }
     }
