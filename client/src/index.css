@@ -81,6 +81,11 @@ header a {
   background-color: #111;
 }
 
+.oh-button:hover {
+  opacity: 0.8;
+  background-color: rgb(165, 23, 23)
+}
+
 button {
   font-size: 1rem;
   text-decoration: none;
@@ -90,7 +95,7 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: rgb(187, 17, 17);
+  background-color: rgb(139, 42, 42);
 }
 
 button:hover {
@@ -299,6 +304,12 @@ input:focus {
   border-radius: 10px;
 }
 
+.product-img {
+  flex-shrink: 0 !important;
+  max-width: 300px !important;
+  width: 135px ;
+}
+
 @keyframes glowing-button-85 {
   0% {
     background-position: 0 0;
@@ -336,6 +347,15 @@ input:focus {
     flex-wrap: wrap;
     flex-direction: column;
   }
+
+  
 }
 
-
+@media screen and (max-width: 390px) {
+  .oh-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+}

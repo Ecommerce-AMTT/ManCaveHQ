@@ -10,7 +10,7 @@
       "currentRating": 4,
       "comment": "solid, sleak, would buy again"
     },
-    "image": "computer-monitor.jpg"
+    "image": "monitor.jpg"
   },
   {
     "name": "Samsung Computer Monitor",
@@ -23,7 +23,7 @@
       "currentRating": 3,
       "comment": "Stunning, immersive"
     },
-    "image": "computer-monitor.jpg"
+    "image": "monitor.jpg"
   },
   {
     "name": "LG Computer Monitor",
@@ -36,7 +36,7 @@
       "currentRating": 4,
       "comment": "Excellent monitor for the price"
     },
-    "image": "computer-monitor.jpg"
+    "image": "monitor.jpg"
   },
   {
     "name": "Lenovo Computer Monitor",
@@ -49,7 +49,7 @@
       "currentRating": 3,
       "comment": "solid, sleak, would buy again"
     },
-    "image": "computer-monitor.jpg"
+    "image": "monitor.jpg"
   },
   {
     "name": "Sony Computer Monitor",
@@ -131,7 +131,7 @@
       "currentRating": 5,
       "comment": "best headset I've ever owned"
     },
-    "image": "Bluetooth.png"
+    "image": "bluetooth.png"
   },
   {
     "name": "Sony Digital Bluetooth Wireless Microphone",
@@ -144,7 +144,7 @@
       "currentRating": 3,
       "comment": "really love the holder that helps it from getting lost"
     },
-    "image": "Bluetooth.png"
+    "image": "bluetooth.png"
   },
   {
     "name": "Bose SoundLink Flex Portable Speaker",
@@ -157,7 +157,7 @@
       "currentRating": 2,
       "comment": "Bose is superior to JBL & Sony!"
     },
-    "image": "Bluetooth.png"
+    "image": "bluetooth.png"
   },
   {
     "name": "Logitech Anywhere 3 Wireless Mouse",
@@ -170,7 +170,7 @@
       "currentRating": 4,
       "comment": "this feels pleasant in the hand, nice and small"
     },
-    "image": "Bluetooth.png"
+    "image": "bluetooth.png"
   },
   {
     "name": "ASUS Bluetooth Smart Ready USB Adapter",
@@ -180,7 +180,7 @@
     "quantity": 12,
     "tag": ["Bluetooth", "ASUS"],
     "reviews": { "currentRating": 1, "comment": "works perfectly" },
-    "image": "Bluetooth.png"
+    "image": "bluetooth.png"
   },
   {
     "name": "Microsoft Full Size Mechanical Keyboard",
@@ -314,7 +314,7 @@
     "quantity": 229,
     "tag": ["Edifier", "Speakers"],
     "reviews": { "currentRating": 3, "comment": "Amazing for the price!" },
-    "image": "Computer-Speakers.jpg"
+    "image": "speakers.jpg"
   },
   {
     "name": "Logitech Z200 2.0 Multimedia Speakers",
@@ -324,7 +324,7 @@
     "quantity": 108,
     "tag": ["Logitech", "Multimedia", "Speakers"],
     "reviews": { "currentRating": 4, "comment": "it works" },
-    "image": "Computer-Speakers.jpg"
+    "image": "speakers.jpg"
   },
   {
     "name": "Bose Companion 2 Series III Multimedia Speakers",
@@ -334,7 +334,7 @@
     "quantity": 50,
     "tag": ["Bose", "Multimedia", "Speakers"],
     "reviews": { "currentRating": 2, "comment": "I love the versatility}" },
-    "image": "Computer-Speakers.jpg"
+    "image": "speakers.jpg"
   },
   {
     "name": "Logitech Z313 2.1-Channel Speaker",
@@ -347,7 +347,7 @@
       "currentRating": 4,
       "comment": "excellent value, only issue is we don't like the cables that came with it"
     },
-    "image": "Computer-Speakers.jpg"
+    "image": "speakers.jpg"
   },
   {
     "name": "Altec Lansing - Soundpro Elite RGB Gaming Speaker Set",
@@ -360,6 +360,6 @@
       "currentRating": 3,
       "comment": "the speakers are amazing for gaming"
     },
-    "image": "Computer-Speakers.jpg"
+    "image": "speakers.jpg"
   }
 ]

@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 
 const DropdownStyles = styled.div`
   button {
+    font-size: 1.3rem;
     background-color: #343a40 !important;
     border-color: #343a40 !important;
   }
@@ -33,7 +34,7 @@ export default function AppNavbar({ onChangeLang }) {
         <Container fluid>
           <DropdownStyles name='i18n-menu' id='Main'>
             <Dropdown>
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              <Dropdown.Toggle className="hover-card" variant='success' id='dropdown-basic'>
                 <FontAwesomeIcon icon={faGlobe} />
               </Dropdown.Toggle>
               <Dropdown.Menu onClick={onChangeLang}>
@@ -71,12 +72,12 @@ export default function AppNavbar({ onChangeLang }) {
                   <Nav.Link as={Link} to='/orderHistory'>
                     {t("Nav:order_history")}
                   </Nav.Link>
-                  <Nav.Link className='mr-5' onClick={Auth.logout}>
+                  <Nav.Link  onClick={Auth.logout}>
                     {t("Nav:logout")}
                   </Nav.Link>
                 </>
               ) : (
-                <Nav.Link className='mr-5' onClick={() => setShowModal(true)}>
+                <Nav.Link  onClick={() => setShowModal(true)}>
                   {t("Nav:login_signup")}
                 </Nav.Link>
               )}
