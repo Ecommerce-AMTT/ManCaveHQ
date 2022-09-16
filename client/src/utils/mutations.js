@@ -56,18 +56,19 @@ export const ADD_ORDER = gql`
 `;
 
 export const SAVE_REVIEW = gql`
-  mutation saveReview(
-    $id: String!
-    $currentRating: String!
-    $comment: String!
-  ) {
-    saveReview(id: $id, currentRating: $currentRating, comment: $comment) {
-      product {
+  mutation saveReview($id: ID!, $currentRating: Int!, $comment: String!) {
+    saveReview(_id: $id, currentRating: $currentRating, comment: $comment) {
+      _id
+      name
+      description
+      image
+      quantity
+      price
+      reviews {
         _id
-        name
-        description
-        price
-        quantity
+        currentRating
+        comment
+        user
       }
     }
   }

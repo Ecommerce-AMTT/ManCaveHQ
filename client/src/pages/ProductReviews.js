@@ -1,21 +1,42 @@
 import { Button, Card, Container } from "react-bootstrap";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 
 import { SAVE_REVIEW } from "../utils/mutations";
+import StarRating from "./StarRating";
 
-const ReviewsStyles = styled.div`
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { QUERY_PRODUCT } from "../utils/queries";
+import Loading from "../components/Loading";
+
+const NewReviewStyles = styled.div`
+  .card {
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 1pt;
+  }
+
+  .card-img {
+    width: 60%;
+    align-self: center;
+  }
+
+  .card-body {
+    width: 60%;
+    align-self: center;
+    padding: 2rem;
+  }
+
   .container {
     margin-top: 5rem;
     color: #f7f2f2;
-    width: 40%;
+    width: 60%;
   }
 
-  #ReviewCard {
+  #ReviewNewCard {
     width: 100%;
     min-height: 40px;
     background-color: #343a40;
@@ -23,7 +44,7 @@ const ReviewsStyles = styled.div`
 
   .card-header {
     color: #d3cbcb;
-    padding: 2rem;
+    padding: 1rem;
   }
 
   textarea {
@@ -45,89 +66,155 @@ const ReviewsStyles = styled.div`
   }
 `;
 
-export default function ProductReviews() {
-  const stars = Array(5).fill(0);
+const OldReviewStyles = styled.div`
+  .card {
+    margin: 1rem;
+    border-radius: 1rem 1rem;
+    border: 1pt;
+  }
 
+  #ReviewNewCard {
+    width: 100%;
+    min-height: 40px;
+    background-color: #343a40;
+  }
+`;
+
+export default function ProductReviews() {
   const [currentRating, setCurrentRating] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+  const [comment, setComment] = useState(undefined);
+  const [reviews, setReviews] = useState([]);
 
-  const handleClick = (rating) => {
+  const handleClickRating = (rating) => {
     setCurrentRating(rating);
   };
 
-  const handleMouseOver = (hoverValue) => {
+  const handleChangeComment = (e) => {
+    const comment = e.target.value;
+    console.log("comment", comment);
+
+    setComment(comment);
+  };
+
+  const handleMouseEnter = (hoverValue) => {
+    console.log("mouseenter event");
     setHoverValue(hoverValue);
   };
 
   const handleMouseLeave = () => {
+    console.log("mouseleave event");
     setHoverValue(undefined);
   };
 
   const { id } = useParams();
-
   const [saveReview] = useMutation(SAVE_REVIEW);
 
   const handleSave = async () => {
-    const comment = document.querySelector("#ReviewComment");
-    console.log("comment", comment);
+    console.log("handleSave.comment", comment);
 
-    if (comment) {
-      console.log("comment", comment.value);
+    if (comment && currentRating) {
+      console.log("comment", comment);
       console.log("currentRating", currentRating);
+      console.log("_id", id);
 
       const { data } = await saveReview({
         variables: { id, currentRating, comment },
       });
 
-      const productData = data.saveReview.product;
-      console.log("productData", productData);
+      setReviews(data.saveReview.reviews);
+    } else {
+      alert("Please set a rating before you save");
     }
   };
 
+  const { loading, data, error } = useQuery(QUERY_PRODUCT, {
+    variables: { id },
+  });
+
+  if (error) {
+    console.error("GraphqlError.QUERY_PRODUCT", error);
+  } else if (loading) {
+    console.log("Still loading...");
+    return <Loading />;
+  } else {
+    console.log("reviews.length = ", reviews.length);
+    if (reviews.length === 0) {
+      setReviews(data.product.reviews);
+    }
+  }
+
   return (
-    <ReviewsStyles>
-      <Container>
-        <Card id='ReviewCard'>
-          <Card.Header>
-            <h3>Review for {"xxxx"}</h3>
-          </Card.Header>
-          <Card.Body>
-            <div>
-              {stars.map((_, index) => {
-                return (
-                  <FontAwesomeIcon
-                    icon={faStar}
-                    key={index}
-                    style={{
-                      cursor: "pointer",
-                      padding: "0.1rem",
-                      color:
-                        (hoverValue || currentRating) > index
-                          ? "orange"
-                          : "gray",
-                    }}
-                    onClick={() => handleClick(index + 1)}
-                    onMouseOver={() => handleMouseOver}
-                    onMouseLeave={handleMouseLeave}
-                  />
-                );
-              })}
-            </div>
-          </Card.Body>
-          <Card.Footer>
-            <textarea
-              placeholder='Please provide a comment'
-              rows={6}
-              id='ReviewComment'
-            ></textarea>
-          </Card.Footer>
-          <Card.Footer>
-            <Button variant='secondary' onClick={handleSave}>
-              Save
-            </Button>
-          </Card.Footer>
-        </Card>
-      </Container>
-    </ReviewsStyles>
+    <>
+      <NewReviewStyles>
+        <Container>
+          <Card id='ReviewNewCard'>
+            <Card.Header>
+              <h3>Product Review</h3>
+            </Card.Header>
+            <Card.Header>
+              <h4>{data.product.description}</h4>
+            </Card.Header>
+            <Card.Img
+              src={`/images/${data.product.image}`}
+              alt={data.product.name}
+            />
+            <Card.Body>
+              <StarRating
+                hoverIndex={hoverValue || currentRating}
+                handleClickRating={handleClickRating}
+                handleMouseEnter={handleMouseEnter}
+                handleMouseLeave={handleMouseLeave}
+                starCount={5}
+              ></StarRating>
+            </Card.Body>
+            <Card.Footer>
+              <textarea
+                placeholder='Please provide a comment'
+                rows={6}
+                id='ReviewComment'
+                onChange={handleChangeComment}
+              ></textarea>
+            </Card.Footer>
+            <Card.Footer>
+              <Button
+                id='btnSave'
+                variant='secondary'
+                onClick={handleSave}
+                disabled={!(comment && currentRating)}
+              >
+                Save
+              </Button>
+            </Card.Footer>
+          </Card>
+        </Container>
+      </NewReviewStyles>
+      {reviews.length > 0 && (
+        <OldReviewStyles>
+          <Container>
+            {reviews.map((review, index) => {
+              return (
+                <Container key={index}>
+                  <Card id='ReviewOldCard'>
+                    <Card.Header>
+                      <StarRating
+                        starCount={5}
+                        hoverIndex={review.currentRating}
+                        handleClickRating={(() => {})()}
+                        handleMouseEnter={(() => {})()}
+                        handleMouseLeave={(() => {})()}
+                      ></StarRating>
+                    </Card.Header>
+                    <Card.Body>
+                      <p>{review.comment}</p>
+                    </Card.Body>
+                  </Card>
+                </Container>
+              );
+            })}
+          </Container>
+        </OldReviewStyles>
+      )}
+    </>
   );
 }

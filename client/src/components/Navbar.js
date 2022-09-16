@@ -45,12 +45,12 @@ export default function AppNavbar({ onChangeLang }) {
           </DropdownStyles>
           <Navbar.Brand as={Link} to='/' style={{ fontSize: 30 }}>
             <img
-              src='../assets/images/merncavehqlogo.png'
-              height="95"
-              width="180"
-              className="d-inline-block align-top"
-              alt="MernCave HQ Logo"
-              />
+              src='/assets/images/merncavehqlogo.png'
+              height='95'
+              width='180'
+              className='d-inline-block align-top'
+              alt='MernCave HQ Logo'
+            />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls='navbar' />
@@ -98,7 +98,7 @@ export default function AppNavbar({ onChangeLang }) {
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
-                <Nav.Item >
+                <Nav.Item>
                   <Nav.Link eventKey='login'>{t("Nav:login")}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
