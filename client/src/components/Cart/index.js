@@ -75,7 +75,7 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className='cart-closed' onMouseOver={toggleCart} onMouseOut={toggleCart}>
+      <div className='cart-closed' onClick={toggleCart}>
         <i className='fa fa-shopping-cart' aria-hidden='true'></i>
       </div>
     );
@@ -83,7 +83,7 @@ const Cart = () => {
 
   return (
     <div className='cart'>
-      <div className='close' onMouseEnter={toggleCart} onMouseOut={toggleCart}>
+      <div className='close' onClick={toggleCart}>
         <i className='fa fa-times' aria-hidden='true'></i>
       </div>
       <h2>Shopping Cart</h2>
@@ -106,10 +106,7 @@ const Cart = () => {
         </div>
       ) : (
         <h3>
-          <span role='img' aria-label='shocked'>
-            😱
-          </span>
-          You haven't added anything to your cart yet!
+          Your cart is empty!
         </h3>
       )}
     </div>

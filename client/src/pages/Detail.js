@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 import Cart from "../components/Cart";
 import { useStoreContext } from "../utils/GlobalState";
-import Loading from '../components/Loading'
+import Loading from "../components/Loading";
 
 import {
   REMOVE_FROM_CART,

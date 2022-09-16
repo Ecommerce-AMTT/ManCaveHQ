@@ -32,15 +32,13 @@
 }
 
 .cart-closed {
-  position: fixed;
-  top: 2%;
-  right: 1%;
+  position: absolute;
+  top: -1;
+  right: 2%;
   font-size: 2rem;
   cursor: pointer;
-  border-radius: 50%;
   padding: .25rem;
-  width: 50px;
-  height: 50px;
+
 }
 
 .cart-closed:hover {
@@ -59,17 +57,17 @@
 }
 
 .cart {
-  position: fixed;
-  top: 0;
-  right: 0;
-  min-width: 20%;
-  max-width: 30%;
-  max-height: 60%;
-  background-color: var(--light);
-  overflow: auto;
-  padding: .5rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
-  border-bottom-left-radius: .5rem;
+  position: absolute;
+    top: 0;
+    right: 0;
+    background: #333;
+    color: #fff;
+    min-height: 100vh;
+    width: 50%;
+    padding: 20px;
+    line-height: 1.5;
+    z-index: 1;
+    /*this is what hides the display off screen(transform)*/
 }
 
 /* 769-991 */
@@ -77,15 +75,22 @@
 
 @media screen and (max-width: 991px) {
   .cart {
-    position: relative;
+    position: absolute;
     max-width: 100%;
     max-height: auto;
     box-shadow: none;
-    background-color: inherit;
+    background-color: fff;
   }
 
   .cart-closed {
-    position: relative;
-    margin: 0 auto;
+    position: absolute;
+  top: -1;
+  right: 2%;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: .25rem;
+  width: 50px;
+  height: 50px;
   }
 }
