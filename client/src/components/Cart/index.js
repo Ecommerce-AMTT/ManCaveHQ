@@ -8,11 +8,17 @@ import Auth from "../../utils/auth";
 import { useStoreContext } from "../../utils/GlobalState";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import "./style.css";
+import { useSelector } from "react-redux";
 
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
+  const { t } = useSelector((state) => {
+    // console.log("Contact.state ", state);
+    return state.translate;
+  });
+
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
@@ -67,11 +73,8 @@ const Cart = () => {
     });
   }
 
-  
-
-
-// onMouseDown onMouseEnter onMouseLeave
-// onMouseMove onMouseOut onMouseOver onMouseUp
+  // onMouseDown onMouseEnter onMouseLeave
+  // onMouseMove onMouseOut onMouseOver onMouseUp
 
   if (!state.cartOpen) {
     return (
@@ -86,7 +89,7 @@ const Cart = () => {
       <div className='close' onClick={toggleCart}>
         <i className='fa fa-times' aria-hidden='true'></i>
       </div>
-      <h2>Shopping Cart</h2>
+      <h2> {t("Menu:shopping_cart")}</h2>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
@@ -94,7 +97,9 @@ const Cart = () => {
           ))}
 
           <div className='flex-row space-between'>
-            <strong>Total: ${calculateTotal()}</strong>
+            <strong>
+              {t("Menu:total")}: ${calculateTotal()}
+            </strong>
 
             {/* Check to see if the user is logged in. If so render a button to check out */}
             {Auth.loggedIn() ? (
@@ -105,9 +110,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h3>
-          Your cart is empty!
-        </h3>
+        <h3>Your cart is empty!</h3>
       )}
     </div>
   );
