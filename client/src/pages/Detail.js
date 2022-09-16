@@ -31,7 +31,7 @@ export default function Detail() {
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
-  const { products, cart } = state;
+  const { products, cart, prevPath } = state;
 
   useEffect(() => {
     // already in global store
@@ -102,7 +102,7 @@ export default function Detail() {
                 "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898",
             }}
           >
-            <Link className='m-1' style={{ color: "black" }} to='/'>
+            <Link className='m-1' style={{ color: "black" }} to={`/${prevPath}`}>
               ← {t("Menu:back_to_products")}
             </Link>
             <Card.Title style={{ fontSize: "3rem" }}>
