@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 
 export default function CategoryMenu() {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 
@@ -44,24 +43,36 @@ export default function CategoryMenu() {
   const handleClick = (id) => {
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
+      currentCategory: id || ''
     });
   };
 
   return (
     <Container>
-      <h2 className='mb-2'>{t("Menu:choose_category")}:</h2>
-      {categories.map((item) => (
-        <Button
-          className='m-1 button-85'
-          key={item._id}
+      <h2 className='mt-4 mb-4'>{t("Menu:choose_category")}: <Button
+          style={{background: 'rgb(139, 42, 42)', 
+          borderColor: "rgb(139, 42, 42)"}}
+          size="sm"
           onClick={() => {
-            handleClick(item._id);
+            handleClick()
           }}
         >
-          {item.name}
-        </Button>
-      ))}
+          Reset
+        </Button></h2>
+      
+      <div >
+        {categories.map((item) => (
+          <Button
+            className='m-1 button-85'
+            key={item._id}
+            onClick={() => {
+              handleClick(item._id);
+            }}
+          >
+          {t("Category:" + item.name?.replace(" ", "-"))}
+          </Button>
+        ))}
+      </div>
     </Container>
   );
 }

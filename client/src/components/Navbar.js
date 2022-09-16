@@ -11,8 +11,9 @@ import LoginForm from "./LoginForm";
 import Auth from "../utils/auth";
 import { useSelector } from "react-redux";
 
-const Styles = styled.div`
+const DropdownStyles = styled.div`
   button {
+    font-size: 1.3rem;
     background-color: #343a40 !important;
     border-color: #343a40 !important;
   }
@@ -31,9 +32,9 @@ export default function AppNavbar({ onChangeLang }) {
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
-          <Styles name='i18n-menu' id='Main'>
+          <DropdownStyles name='i18n-menu' id='Main'>
             <Dropdown>
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              <Dropdown.Toggle className="hover-card" variant='success' id='dropdown-basic'>
                 <FontAwesomeIcon icon={faGlobe} />
               </Dropdown.Toggle>
               <Dropdown.Menu onClick={onChangeLang}>
@@ -42,12 +43,12 @@ export default function AppNavbar({ onChangeLang }) {
                 <Dropdown.Item data-value='fr'>Français</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-          </Styles>
+          </DropdownStyles>
           <Navbar.Brand as={Link} to='/' style={{ fontSize: 30 }}>
             <img
               src='../assets/images/merncavehqlogo.png'
-              height="95"
-              width="180"
+              height="70"
+              width="140"
               className="d-inline-block align-top"
               alt="MernCave HQ Logo"
               />
@@ -71,12 +72,12 @@ export default function AppNavbar({ onChangeLang }) {
                   <Nav.Link as={Link} to='/orderHistory'>
                     {t("Nav:order_history")}
                   </Nav.Link>
-                  <Nav.Link className='mr-5' onClick={Auth.logout}>
+                  <Nav.Link  onClick={Auth.logout}>
                     {t("Nav:logout")}
                   </Nav.Link>
                 </>
               ) : (
-                <Nav.Link className='mr-5' onClick={() => setShowModal(true)}>
+                <Nav.Link  onClick={() => setShowModal(true)}>
                   {t("Nav:login_signup")}
                 </Nav.Link>
               )}
@@ -98,7 +99,7 @@ export default function AppNavbar({ onChangeLang }) {
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
-                <Nav.Item>
+                <Nav.Item >
                   <Nav.Link eventKey='login'>{t("Nav:login")}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>

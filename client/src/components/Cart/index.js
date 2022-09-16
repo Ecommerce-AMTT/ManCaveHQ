@@ -67,6 +67,12 @@ const Cart = () => {
     });
   }
 
+  
+
+
+// onMouseDown onMouseEnter onMouseLeave
+// onMouseMove onMouseOut onMouseOver onMouseUp
+
   if (!state.cartOpen) {
     return (
       <div className='cart-closed' onClick={toggleCart}>
@@ -100,10 +106,7 @@ const Cart = () => {
         </div>
       ) : (
         <h3>
-          <span role='img' aria-label='shocked'>
-            😱
-          </span>
-          You haven't added anything to your cart yet!
+          Your cart is empty!
         </h3>
       )}
     </div>

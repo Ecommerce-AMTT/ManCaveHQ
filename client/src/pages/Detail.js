@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 import Cart from "../components/Cart";
 import { useStoreContext } from "../utils/GlobalState";
-import Loading from '../components/Loading'
+import Loading from "../components/Loading";
 
 import {
   REMOVE_FROM_CART,
@@ -102,7 +102,7 @@ export default function Detail() {
                 "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898",
             }}
           >
-            <Link className='m-1' style={{ color: "black" }} to='/'>
+            <Link className='m-1' style={{ color: "black" }} to='/products'>
               ← {t("Menu:back_to_products")}
             </Link>
             <Card.Title style={{ fontSize: "3rem" }}>

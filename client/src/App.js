@@ -24,8 +24,8 @@ import Homepage from "./pages/Homepage"
 import Footer from "./components/Footer";
 import Construction from "./pages/Construction";
 
-
 import { changeT } from "./redux/translate";
+import ProductReviews from "./pages/ProductReviews";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -77,6 +77,7 @@ function App() {
             <Route path='/orderHistory' element={<OrderHistory />} />
             <Route path='/loading' element={<Loading />} />
             <Route path='/products/:id' element={<Detail />} />
+            <Route path='/products/:id/:reviews' element={<ProductReviews />} />
             <Route path='/construction' element={<Construction />} />
             <Route path='*' element={<NoMatch />} />
           </Routes>
