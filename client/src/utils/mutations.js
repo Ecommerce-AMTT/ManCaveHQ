@@ -1,18 +1,44 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const LOGIN = gql`
+//login mutation for activity 24
+// export const LOGIN = gql`
+//   mutation login($email: String!, $password: String!) {
+//     login(email: $email, password: $password) {
+//       token
+//       user {
+//         _id
+//       }
+//     }
+//   }
+// `;
+//login mutation for acivity 26 -using
+export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       user {
         _id
+        userName
+      }
+    }
+  }
+`;
+
+//from activity 26 add user for signup-using
+export const ADD_USER = gql`
+  mutation addUser($userName: String!, $email: String!, $password: String!) {
+    addUser(userName: $userName, email: $email, password: $password) {
+      token
+      user {
+        _id
+        userName
       }
     }
   }
 `;
 
 export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
+  mutation addOrder($products: [ProductInput]!) {
     addOrder(products: $products) {
       purchaseDate
       products {
@@ -29,23 +55,42 @@ export const ADD_ORDER = gql`
   }
 `;
 
-export const ADD_USER = gql`
-  mutation addUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
+export const SAVE_REVIEW = gql`
+  mutation saveReview(
+    $id: String!
+    $currentRating: String!
+    $comment: String!
   ) {
-    addUser(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      password: $password
-    ) {
-      token
-      user {
+    saveReview(id: $id, currentRating: $currentRating, comment: $comment) {
+      product {
         _id
+        name
+        description
+        price
+        quantity
       }
     }
   }
 `;
+
+//add user mutation for previous nav component
+// export const ADD_USER = gql`
+//   mutation addUser(
+//     $firstName: String!
+//     $lastName: String!
+//     $email: String!
+//     $password: String!
+//   ) {
+//     addUser(
+//       firstName: $firstName
+//       lastName: $lastName
+//       email: $email
+//       password: $password
+//     ) {
+//       token
+//       user {
+//         _id
+//       }
+//     }
+//   }
+// `;

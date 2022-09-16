@@ -1,14 +1,20 @@
-import React, { useEffect } from 'react';
-import { useQuery } from '@apollo/client';
-import { useStoreContext } from '../../utils/GlobalState';
+import React, { useEffect } from "react";
+import { Container, Button } from "react-bootstrap";
+import { useQuery } from "@apollo/client";
+import { useStoreContext } from "../../utils/GlobalState";
 import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
-} from '../../utils/actions';
-import { QUERY_CATEGORIES } from '../../utils/queries';
-import { idbPromise } from '../../utils/helpers';
+} from "../../utils/actions";
+import { QUERY_CATEGORIES } from "../../utils/queries";
+import { idbPromise } from "../../utils/helpers";
+import { useSelector } from "react-redux";
 
-function CategoryMenu() {
+export default function CategoryMenu() {
+  const { t } = useSelector((state) => {
+    return state.translate;
+  });
+
   const [state, dispatch] = useStoreContext();
 
   const { categories } = state;
@@ -22,10 +28,10 @@ function CategoryMenu() {
         categories: categoryData.categories,
       });
       categoryData.categories.forEach((category) => {
-        idbPromise('categories', 'put', category);
+        idbPromise("categories", "put", category);
       });
     } else if (!loading) {
-      idbPromise('categories', 'get').then((categories) => {
+      idbPromise("categories", "get").then((categories) => {
         dispatch({
           type: UPDATE_CATEGORIES,
           categories: categories,
@@ -37,25 +43,36 @@ function CategoryMenu() {
   const handleClick = (id) => {
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
+      currentCategory: id || ''
     });
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
-      {categories.map((item) => (
-        <button
-          key={item._id}
+    <Container>
+      <h2 className='mt-4 mb-4'>{t("Menu:choose_category")}: <Button
+          style={{background: 'rgb(139, 42, 42)', 
+          borderColor: "rgb(139, 42, 42)"}}
+          size="sm"
           onClick={() => {
-            handleClick(item._id);
+            handleClick()
           }}
         >
-          {item.name}
-        </button>
-      ))}
-    </div>
+          Reset
+        </Button></h2>
+      
+      <div >
+        {categories.map((item) => (
+          <Button
+            className='m-1 button-85'
+            key={item._id}
+            onClick={() => {
+              handleClick(item._id);
+            }}
+          >
+          {t("Category:" + item.name?.replace(" ", "-"))}
+          </Button>
+        ))}
+      </div>
+    </Container>
   );
 }
-
-export default CategoryMenu;

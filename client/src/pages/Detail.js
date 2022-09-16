@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import React, { useEffect, useState } from "react";
+import { Card, Container, Button } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { useSelector } from "react-redux";
 
-import Cart from '../components/Cart';
-import { useStoreContext } from '../utils/GlobalState';
+import Cart from "../components/Cart";
+import { useStoreContext } from "../utils/GlobalState";
+import Loading from "../components/Loading";
+
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
   ADD_TO_CART,
   UPDATE_PRODUCTS,
-} from '../utils/actions';
-import { QUERY_PRODUCTS } from '../utils/queries';
-import { idbPromise } from '../utils/helpers';
-import spinner from '../assets/spinner.gif';
+} from "../utils/actions";
+import { QUERY_PRODUCTS } from "../utils/queries";
+import { idbPromise } from "../utils/helpers";
+import spinner from "../assets/spinner.gif";
 
-function Detail() {
+export default function Detail() {
+  const { t } = useSelector((state) => {
+    // console.log("Contact.state ", state);
+    return state.translate;
+  });
+
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
@@ -37,12 +46,12 @@ function Detail() {
       });
 
       data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+        idbPromise("products", "put", product);
       });
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('products', 'get').then((indexedProducts) => {
+      idbPromise("products", "get").then((indexedProducts) => {
         dispatch({
           type: UPDATE_PRODUCTS,
           products: indexedProducts,
@@ -59,7 +68,7 @@ function Detail() {
         _id: id,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
-      idbPromise('cart', 'put', {
+      idbPromise("cart", "put", {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
@@ -68,7 +77,7 @@ function Detail() {
         type: ADD_TO_CART,
         product: { ...currentProduct, purchaseQuantity: 1 },
       });
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
+      idbPromise("cart", "put", { ...currentProduct, purchaseQuantity: 1 });
     }
   };
 
@@ -78,40 +87,53 @@ function Detail() {
       _id: currentProduct._id,
     });
 
-    idbPromise('cart', 'delete', { ...currentProduct });
+    idbPromise("cart", "delete", { ...currentProduct });
   };
 
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+        <Container className='d-flex align-items-center justify-content-center my-3'>
+          <Card
+            className=' p-3 '
+            style={{
+              width: "45rem",
+              background:
+                "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898",
+            }}
+          >
+            <Link className='m-1' style={{ color: "black" }} to='/products'>
+              ← {t("Menu:back_to_products")}
+            </Link>
+            <Card.Title style={{ fontSize: "3rem" }}>
+              {currentProduct.name}
+            </Card.Title>
 
-          <h2>{currentProduct.name}</h2>
+            <Card.Text>{currentProduct.description}</Card.Text>
 
-          <p>{currentProduct.description}</p>
+            <Card.Text className='detail-text'>
+              <strong>{t("Menu:price")}:</strong>${currentProduct.price}{" "}
+              <Button className='button-85 m-2' onClick={addToCart}>
+                {t("Menu:add_to_cart")}
+              </Button>
+              <Button
+                className='button-85'
+                disabled={!cart.find((p) => p._id === currentProduct._id)}
+                onClick={removeFromCart}
+              >
+                {t("Menu:remove_from_cart")}
+              </Button>
+            </Card.Text>
 
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
-
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
-        </div>
+            <Card.Img
+              src={`/images/${currentProduct.image}`}
+              alt={currentProduct.name}
+            />
+          </Card>
+        </Container>
       ) : null}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? <Loading /> : null}
       <Cart />
     </>
   );
 }
-
-export default Detail;

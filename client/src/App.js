@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -7,35 +7,25 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { initReactI18next, Trans, useTranslation } from "react-i18next";
-import i18next from "i18next";
+import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Nav from "./components/Nav";
+import Navbar from "./components/Navbar";
 import { StoreProvider } from "./utils/GlobalState";
 import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Loading from "./components/Loading"
+import Homepage from "./pages/Homepage"
+import Footer from "./components/Footer";
+import Construction from "./pages/Construction";
 
-const translationEn = { contactForm: "Contact Form" };
-const translationEs = { contactForm: "Formulario de contacto" };
-const translationFr = { contactForm: "Formulaire de contact" };
-
-i18next.use(initReactI18next).init({
-  resources: {
-    en: { translation: translationEn },
-    es: { translation: translationEs },
-    fr: { translation: translationFr },
-  },
-  lng: "en",
-  fallbackLng: "en",
-  interpolation: { escapeValue: false },
-});
+import { changeT } from "./redux/translate";
+import ProductReviews from "./pages/ProductReviews";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -57,42 +47,44 @@ const client = new ApolloClient({
 });
 
 function App() {
+  // used to control i18n language setting
+  const [lang, setLang] = useState("en");
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // console.log("UseEffect.dispatch called");
+    dispatch(changeT(t), []);
+  });
 
   const onChangeLang = (e) => {
-    i18n.changeLanguage(e.target.value);
-    console.log("onChange lang called", e.target.value);
-    console.log("App.js t = ", t);
+    setLang(e.target.getAttribute("data-value"));
+    i18n.changeLanguage(e.target.getAttribute("data-value"));
+    dispatch(changeT(t));
   };
 
   return (
-    <Suspense fallback='Loading...'>
-      <ApolloProvider client={client}>
-        <Router>
-          <Trans>
-            <select name='language' onChange={onChangeLang}>
-              <option value='en'></option>
-              <option value='es'></option>
-              <option value='fr'></option>
-            </select>
-            <StoreProvider>
-              <Nav />
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/signup' element={<Signup />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/contact' element={<Contact t={t} />} />
-                <Route path='/success' element={<Success />} />
-                <Route path='/orderHistory' element={<OrderHistory />} />
-                <Route path='/products/:id' element={<Detail />} />
-                <Route path='*' element={<NoMatch />} />
-              </Routes>
-            </StoreProvider>
-          </Trans>
-        </Router>
-      </ApolloProvider>
-    </Suspense>
+    <ApolloProvider client={client}>
+      <Router>
+        <StoreProvider>
+          <Navbar onChangeLang={onChangeLang} />
+          <Routes>
+            <Route path='/' element={<Homepage />} />
+            <Route path='/products' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/success' element={<Success />} />
+            <Route path='/orderHistory' element={<OrderHistory />} />
+            <Route path='/loading' element={<Loading />} />
+            <Route path='/products/:id' element={<Detail />} />
+            <Route path='/products/:id/:reviews' element={<ProductReviews />} />
+            <Route path='/construction' element={<Construction />} />
+            <Route path='*' element={<NoMatch />} />
+          </Routes>
+          <Footer/>
+        </StoreProvider>
+      </Router>
+    </ApolloProvider>
   );
 }
 

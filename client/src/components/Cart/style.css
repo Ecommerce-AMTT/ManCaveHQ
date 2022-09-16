@@ -32,20 +32,17 @@
 }
 
 .cart-closed {
-  position: fixed;
-  top: 2%;
-  right: 1%;
+  position: absolute;
+  top: -1;
+  right: 2%;
   font-size: 2rem;
   cursor: pointer;
-  background-color: var(--secondary);
-  border-radius: 50%;
   padding: .25rem;
-  width: 50px;
-  height: 50px;
+
 }
 
 .cart-closed:hover {
-  transform: rotate(8deg);
+  color: rgb(139, 42, 42);
 }
 
 .cart img {
@@ -59,17 +56,41 @@
   margin: 0 .5rem 1rem 0;
 }
 
-@media screen and (max-width: 768px) {
+.cart {
+  position: absolute;
+    top: 0;
+    right: 0;
+    background: #333;
+    color: #fff;
+    min-height: 100vh;
+    width: 50%;
+    padding: 20px;
+    line-height: 1.5;
+    z-index: 1;
+    /*this is what hides the display off screen(transform)*/
+}
+
+/* 769-991 */
+/* Cart icon covers mobile accordion */
+
+@media screen and (max-width: 991px) {
   .cart {
-    position: relative;
+    position: absolute;
     max-width: 100%;
     max-height: auto;
     box-shadow: none;
-    background-color: inherit;
+    background-color: fff;
   }
 
   .cart-closed {
-    position: relative;
-    margin: 0 auto;
+    position: absolute;
+  top: -1;
+  right: 2%;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: .25rem;
+  width: 50px;
+  height: 50px;
   }
 }

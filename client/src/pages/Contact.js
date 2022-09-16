@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { validateEmail } from "../utils/helpers";
 import { Card, Container, Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
-export default function Contact({ t }) {
-  console.log("Contact.js  t = ", t);
+export default function Contact() {
+  const { t } = useSelector((state) => {
+    // console.log("Contact.state ", state);
+    return state.translate;
+  });
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -43,38 +48,42 @@ export default function Contact({ t }) {
   };
 
   return (
-    <section className='container'>
+
+    <Container>
       <h2 data-testid='h1tag' className='top-title'>
-        {t("contactForm")}
+        {t("Contact:contactForm")}
       </h2>
       <hr></hr>
-      <form className='justify-content-center' id='contact-form'>
+      
+      <Container className="d-flex justify-content-center ">      
+      <form id='contact-form'>
         <div className='mt-5'>
-          <label htmlFor='name'>Name:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor='name'>{t("Contact:name")}:</label>
           <input
             className='form-control'
             type='text'
             name='name'
-            placeholder='Your Name'
+            placeholder={t("Contact:your_name")}
             onBlur={handleChange}
           />
         </div>
+
         <div className='mt-5'>
-          <label htmlFor='email'>Email Address:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor='email'>{t("Contact:email")}:</label>
           <input
             className='form-control'
             type='email'
             name='email'
-            placeholder='Your Email'
+            placeholder={t("Contact:your_email")}
             onBlur={handleChange}
           />
         </div>
         <div className='mt-5'>
-          <label htmlFor='message'>Message:</label>
+          <label style={{color: "rgb(211, 203, 203)"}} htmlFor='message'>{t("Contact:message")}:</label>
           <textarea
             className='form-control'
             name='message'
-            placeholder='Do you have any questions for us?'
+            placeholder={t("Contact:your_questions")}
             onBlur={handleChange}
             rows='7'
           />
@@ -93,10 +102,11 @@ export default function Contact({ t }) {
             type='submit'
             onSubmit={handleSubmit}
           >
-            Submit
+            {t("Contact:submit")}
           </Button>
         </div>
       </form>
-    </section>
+      </Container>
+    </Container>
   );
 }
