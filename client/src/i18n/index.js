@@ -21,6 +21,7 @@ i18next
       "About",
       "Menu",
       "Category",
+      "Carousel",
       "default",
     ],
     defaultNS: "default",
