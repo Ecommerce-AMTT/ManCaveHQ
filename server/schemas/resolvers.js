@@ -91,7 +91,7 @@ const resolvers = {
         payment_method_types: ["card"],
         line_items,
         mode: "payment",
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${url}/#/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });
 
@@ -139,7 +139,7 @@ const resolvers = {
                 " units of " +
                 product.name +
                 " Total: " +
-                product.price*product.quantity +
+                product.price * product.quantity +
                 "</li>"
               );
             })}
