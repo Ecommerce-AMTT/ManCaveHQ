@@ -92,6 +92,7 @@ export default function Detail() {
 
   return (
     <>
+      <Cart />
       {currentProduct && cart ? (
         <Container className='d-flex align-items-center justify-content-center my-3'>
           <Card
@@ -133,7 +134,6 @@ export default function Detail() {
         </Container>
       ) : null}
       {loading ? <Loading /> : null}
-      <Cart />
     </>
   );
 }
