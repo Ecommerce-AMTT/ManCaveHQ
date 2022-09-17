@@ -18,7 +18,7 @@ export default function About() {
         }}
       >
         <Card.Img
-          src='../../assets/images/pfp.jpg'
+          src='/assets/images/pfp.jpg'
           className='card-img-top'
           alt='Coder'
         />
@@ -62,7 +62,7 @@ export default function About() {
         }}
       >
         <Card.Img
-          src='../../assets/images/TP.jpeg'
+          src='/assets/images/TP.jpeg'
           className='card-img-top'
           alt='Coder'
         />
@@ -106,7 +106,7 @@ export default function About() {
         }}
       >
         <Card.Img
-          src='../../assets/images/tom.jpg'
+          src='/assets/images/tom.jpg'
           className='card-img-top'
           alt='Coder'
         />
@@ -150,7 +150,7 @@ export default function About() {
         }}
       >
         <Card.Img
-          src='../../assets/images/smallerMM.jpg'
+          src='/assets/images/smallerMM.jpg'
           className='card-img-top'
           alt='Coder'
         />
