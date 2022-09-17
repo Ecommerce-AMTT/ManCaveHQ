@@ -13,9 +13,7 @@ db.once("open", async () => {
 
     for (i=0; i< productData.length; i++) {
         const singleCatId = await(Category.find({name: productData[i].category_name}))
-        // console.log(singleCatId)
         productData[i].category = singleCatId[0]._id
-        // console.log(productData[i])
         const products = await Product.create(productData[i]);
     }
     

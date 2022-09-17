@@ -1,9 +1,6 @@
 import React from "react";
 import { Card, Container, Button, Row, Col } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
@@ -12,7 +9,6 @@ export default function OrderHistory() {
   const { data } = useQuery(QUERY_USER);
 
   let user;
-  let last_sort_date = "";
 
   if (data) {
     user = data.user;
@@ -51,7 +47,7 @@ export default function OrderHistory() {
                         >
                           Order
                         </span>{" "}
-                        #{order._id}
+                        # {order._id.substring(0, 10)}
                       </p>
                     </Col>
 
@@ -150,7 +146,9 @@ export default function OrderHistory() {
               </div>
             ))}
           </Container>
-        ) : null}
+        ) : (
+          <Container>Hi</Container>
+        )}
       </Container>
     </>
   );

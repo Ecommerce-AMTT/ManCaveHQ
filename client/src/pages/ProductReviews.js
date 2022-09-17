@@ -1,7 +1,7 @@
 import { Button, Card, Container } from "react-bootstrap";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import Moment from "react-moment";
 import { SAVE_REVIEW } from "../utils/mutations";
@@ -13,6 +13,7 @@ import Loading from "../components/Loading";
 import StarRating from "./StarRating";
 import StarRatingDisabled from "./StarRatingDisabled";
 import Auth from "../utils/auth";
+import { useSelector } from "react-redux";
 
 const NewReviewStyles = styled.div`
   .card {
@@ -89,10 +90,15 @@ const OldReviewStyles = styled.div`
 `;
 
 export default function ProductReviews() {
+  const { t } = useSelector((state) => {
+    return state.translate;
+  });
+
   const [currentRating, setCurrentRating] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const [comment, setComment] = useState(undefined);
   const [reviews, setReviews] = useState([]);
+  let navigate = useNavigate();
 
   const handleClickRating = (rating) => {
     setCurrentRating(rating);
@@ -131,7 +137,6 @@ export default function ProductReviews() {
   });
 
   if (error) {
-    // console.error("GraphqlError.QUERY_PRODUCT", error);
   } else if (loading) {
     return <Loading />;
   } else {
@@ -146,6 +151,9 @@ export default function ProductReviews() {
         <NewReviewStyles>
           <Container>
             <Card id='ReviewNewCard'>
+            <a href= "#" className='m-1' style={{ color: "rgb(211, 203, 203)" }} onClick={() => navigate(-1)}>
+              ← {t("Menu:Back")}
+            </a>
               <Card.Header>
                 <h3>Product Review</h3>
               </Card.Header>

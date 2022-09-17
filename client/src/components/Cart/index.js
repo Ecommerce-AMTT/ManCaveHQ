@@ -17,7 +17,6 @@ const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 
@@ -110,9 +109,9 @@ const Cart = () => {
               {Auth.loggedIn() ? (
                 <button onClick={submitCheckout}>{t("Nav:checkout")}</button>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>
+                <button onClick={() => setShowModal(true)}>
                   {t("Nav:checkout")}
-                </Nav.Link>
+                </button>
                 // <span>(log in to check out)</span>
               )}
             </div>

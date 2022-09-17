@@ -43,24 +43,29 @@ export default function CategoryMenu() {
   const handleClick = (id) => {
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id || ''
+      currentCategory: id || "",
     });
   };
 
   return (
     <Container>
-      <h2 className='mt-4 mb-4'>{t("Menu:choose_category")}: <Button
-          style={{background: 'rgb(139, 42, 42)', 
-          borderColor: "rgb(139, 42, 42)"}}
-          size="sm"
+      <h2 className='mt-4 mb-4'>
+        {t("Menu:choose_category")}:{" "}
+        <Button
+          style={{
+            background: "rgb(139, 42, 42)",
+            borderColor: "rgb(139, 42, 42)",
+          }}
+          size='sm'
           onClick={() => {
-            handleClick()
+            handleClick();
           }}
         >
-          Reset
-        </Button></h2>
-      
-      <div >
+          {t("Category:reset")}
+        </Button>
+      </h2>
+
+      <div>
         {categories.map((item) => (
           <Button
             className='m-1 button-85'
@@ -69,7 +74,7 @@ export default function CategoryMenu() {
               handleClick(item._id);
             }}
           >
-          {t("Category:" + item.name?.replace(" ", "-"))}
+            {t("Category:" + item.name?.replace(" ", "-"))}
           </Button>
         ))}
       </div>

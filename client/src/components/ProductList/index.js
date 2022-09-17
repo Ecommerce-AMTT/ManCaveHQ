@@ -11,7 +11,7 @@ import Loading from "../Loading";
 
 export default function ProductList() {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
+
     return state.translate;
   });
   const [state, dispatch] = useStoreContext();
@@ -50,7 +50,7 @@ export default function ProductList() {
   }
 
   return (
-    <Container>
+    <Container style={{ paddingLeft: "0px", paddingRight: "0px" }}>
       <h2 className='mt-4'>{t("Menu:our_products")}:</h2>
       {state.products.length ? (
         <div className='flex-row'>

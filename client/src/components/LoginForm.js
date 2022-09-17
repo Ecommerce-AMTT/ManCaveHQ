@@ -10,7 +10,6 @@ import Auth from "../utils/auth";
 
 const LoginForm = () => {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 
@@ -47,7 +46,6 @@ const LoginForm = () => {
         variables: { ...userFormData },
       });
 
-      console.log(data);
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);

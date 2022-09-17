@@ -128,20 +128,18 @@ const resolvers = {
             `Your MerncaveHQ order ${order._id}`,
             `<p>
           <h2>Hello ${context.user.email.split("@")[0]}</h2>
-          <br>Thank you for shopping with us. We'll send a confirmation when your items have shipped
-          <br><H2>Details:</H2>
+          <br>Thank you for shopping with us. We'll send a confirmation when your items have shipped!
+          <br><h3>Details:</h3>
           <hr>
           <ul>
             ${products.map((product) => {
-              console.log("product_detail", product);
-
               return (
                 "<li>" +
                 product.quantity +
                 " units of " +
                 product.name +
                 " Total: " +
-                product.price +
+                product.price*product.quantity +
                 "</li>"
               );
             })}
