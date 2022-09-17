@@ -11,7 +11,6 @@ import "./style.css";
 import { useSelector } from "react-redux";
 import LoginModal from "../LoginModal";
 import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
@@ -108,9 +107,7 @@ const Cart = () => {
 
               {/* Check to see if the user is logged in. If so render a button to check out */}
               {Auth.loggedIn() ? (
-                <Link to='/success'>
-                  <button>{t("Nav:checkout")}</button>
-                </Link>
+                <button onClick={submitCheckout}>{t("Nav:checkout")}</button>
               ) : (
                 <button onClick={() => setShowModal(true)}>
                   {t("Nav:checkout")}
