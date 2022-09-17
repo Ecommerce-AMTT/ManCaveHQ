@@ -54,7 +54,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log("UseEffect.dispatch called");
     dispatch(changeT(t), []);
   });
 
