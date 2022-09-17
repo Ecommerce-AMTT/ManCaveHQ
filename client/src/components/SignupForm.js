@@ -101,7 +101,7 @@ const SignupForm = () => {
           </Form.Label>
           <Form.Control
             type='email'
-            placeholder={t("Signup:wrong_signup")}
+            placeholder={t("Signup:your_email")}
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
