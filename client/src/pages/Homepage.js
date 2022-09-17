@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, Container, Button } from "react-bootstrap";
 import ItemCarousel from "../components/Carousel";
 import { useSelector } from "react-redux";
+import Cart from "../components/Cart";
 
 function Homepage() {
   const { t } = useSelector((state) => {
@@ -11,6 +12,7 @@ function Homepage() {
 
   return (
     <>
+      <Cart />
       <ItemCarousel />
       <Container>
         <h1 className=' text-center mt-5' style={{ color: "white" }}>
