@@ -200,6 +200,9 @@ export default function ProductReviews() {
       {reviews.length > 0 && (
         <OldReviewStyles>
           <Container>
+            <a href= "#" className='m-1' style={{ color: "rgb(211, 203, 203)" }} onClick={() => navigate(-1)}>
+              ← {t("Menu:Back")}
+            </a>
             {reviews.map((review, index) => {
               return (
                 <Container key={index}>

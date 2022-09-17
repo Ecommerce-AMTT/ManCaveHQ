@@ -62,7 +62,7 @@ export default function About() {
         }}
       >
         <Card.Img
-          src='/assets/images/TP.jpeg'
+          src='/assets/images/tp.jpeg'
           className='card-img-top'
           alt='Coder'
         />
