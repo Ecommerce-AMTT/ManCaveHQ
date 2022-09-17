@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 
 const SignupForm = () => {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 
@@ -53,7 +52,6 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData },
       });
-      console.log(data);
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
@@ -77,7 +75,7 @@ const SignupForm = () => {
           show={showAlert}
           variant='danger'
         >
-          {t("Signup:wrong_signup")}
+          <p style={{marginTop : "10px"}}>{t("Signup:wrong_signup")}</p>
         </Alert>
 
         <Form.Group>
@@ -101,7 +99,7 @@ const SignupForm = () => {
           </Form.Label>
           <Form.Control
             type='email'
-            placeholder={t("Signup:wrong_signup")}
+            placeholder={t("Signup:your_email")}
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}

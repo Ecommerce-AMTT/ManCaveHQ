@@ -17,7 +17,6 @@ const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 

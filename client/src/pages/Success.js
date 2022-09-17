@@ -13,7 +13,6 @@ function Success() {
       try {
         const cart = await idbPromise("cart", "get");
         const products = cart.map((item) => {
-          console.log("cart_item", item);
           return {
             _id: item._id,
             name: item.name,
