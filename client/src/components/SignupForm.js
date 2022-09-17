@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 
 const SignupForm = () => {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 
@@ -53,7 +52,6 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData },
       });
-      console.log(data);
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);

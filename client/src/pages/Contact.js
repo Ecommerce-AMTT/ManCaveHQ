@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 export default function Contact() {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 

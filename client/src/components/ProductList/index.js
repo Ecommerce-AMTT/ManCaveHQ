@@ -11,7 +11,7 @@ import Loading from "../Loading";
 
 export default function ProductList() {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
+
     return state.translate;
   });
   const [state, dispatch] = useStoreContext();

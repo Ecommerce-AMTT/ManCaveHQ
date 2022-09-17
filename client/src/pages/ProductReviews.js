@@ -137,7 +137,6 @@ export default function ProductReviews() {
   });
 
   if (error) {
-    // console.error("GraphqlError.QUERY_PRODUCT", error);
   } else if (loading) {
     return <Loading />;
   } else {
