@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from "@apollo/client";
 import { QUERY_CHECKOUT } from "../../utils/queries";
@@ -8,13 +8,22 @@ import Auth from "../../utils/auth";
 import { useStoreContext } from "../../utils/GlobalState";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import "./style.css";
+import { useSelector } from "react-redux";
+import LoginModal from "../LoginModal";
+import { Nav } from "react-bootstrap";
 
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
+  const { t } = useSelector((state) => {
+    return state.translate;
+  });
+
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  // set modal display state
+  const [showModal, setShowModal] = useState(false);
 
   // We check to see if there is a data object that exists, if so this means that a checkout session was returned from the backend
   // Then we should redirect to the checkout with a reference to our session id
@@ -67,11 +76,8 @@ const Cart = () => {
     });
   }
 
-  
-
-
-// onMouseDown onMouseEnter onMouseLeave
-// onMouseMove onMouseOut onMouseOver onMouseUp
+  // onMouseDown onMouseEnter onMouseLeave
+  // onMouseMove onMouseOut onMouseOver onMouseUp
 
   if (!state.cartOpen) {
     return (
@@ -82,34 +88,40 @@ const Cart = () => {
   }
 
   return (
-    <div className='cart'>
-      <div className='close' onClick={toggleCart}>
-        <i className='fa fa-times' aria-hidden='true'></i>
-      </div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
-
-          <div className='flex-row space-between'>
-            <strong>Total: ${calculateTotal()}</strong>
-
-            {/* Check to see if the user is logged in. If so render a button to check out */}
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
-          </div>
+    <>
+      <div className='cart'>
+        <div className='close' onClick={toggleCart}>
+          <i className='fa fa-times' aria-hidden='true'></i>
         </div>
-      ) : (
-        <h3>
-          Your cart is empty!
-        </h3>
-      )}
-    </div>
+        <h2> {t("Menu:shopping_cart")}</h2>
+        {state.cart.length ? (
+          <div>
+            {state.cart.map((item) => (
+              <CartItem key={item._id} item={item} />
+            ))}
+
+            <div className='flex-row space-between'>
+              <strong>
+                {t("Menu:total")}: ${calculateTotal()}
+              </strong>
+
+              {/* Check to see if the user is logged in. If so render a button to check out */}
+              {Auth.loggedIn() ? (
+                <button onClick={submitCheckout}>{t("Nav:checkout")}</button>
+              ) : (
+                <Nav.Link onClick={() => setShowModal(true)}>
+                  {t("Nav:checkout")}
+                </Nav.Link>
+                // <span>(log in to check out)</span>
+              )}
+            </div>
+          </div>
+        ) : (
+          <h3>Your cart is empty!</h3>
+        )}
+      </div>
+      <LoginModal setShowModal={setShowModal} showModal={showModal} />
+    </>
   );
 };
 

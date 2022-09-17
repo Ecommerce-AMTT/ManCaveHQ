@@ -5,11 +5,11 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "react-bootstrap";
-import SignUpForm from "./SignupForm";
-import LoginForm from "./LoginForm";
+
 // import SearchBar from "../components/SearchBar";
 import Auth from "../utils/auth";
 import { useSelector } from "react-redux";
+import LoginModal from "./LoginModal";
 
 const DropdownStyles = styled.div`
   button {
@@ -21,7 +21,6 @@ const DropdownStyles = styled.div`
 
 export default function AppNavbar({ onChangeLang }) {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 
@@ -34,7 +33,11 @@ export default function AppNavbar({ onChangeLang }) {
         <Container fluid>
           <DropdownStyles name='i18n-menu' id='Main'>
             <Dropdown>
-              <Dropdown.Toggle className="hover-card" variant='success' id='dropdown-basic'>
+              <Dropdown.Toggle
+                className='hover-card'
+                variant='success'
+                id='dropdown-basic'
+              >
                 <FontAwesomeIcon icon={faGlobe} />
               </Dropdown.Toggle>
               <Dropdown.Menu onClick={onChangeLang}>
@@ -46,12 +49,12 @@ export default function AppNavbar({ onChangeLang }) {
           </DropdownStyles>
           <Navbar.Brand as={Link} to='/' style={{ fontSize: 30 }}>
             <img
-              src='../assets/images/merncavehqlogo.png'
-              height="70"
-              width="140"
-              className="d-inline-block align-top"
-              alt="MernCave HQ Logo"
-              />
+              src='/assets/images/merncavehqlogo.png'
+              height='95'
+              width='180'
+              className='d-inline-block align-top'
+              alt='MernCave HQ Logo'
+            />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls='navbar' />
@@ -72,12 +75,10 @@ export default function AppNavbar({ onChangeLang }) {
                   <Nav.Link as={Link} to='/orderHistory'>
                     {t("Nav:order_history")}
                   </Nav.Link>
-                  <Nav.Link  onClick={Auth.logout}>
-                    {t("Nav:logout")}
-                  </Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>{t("Nav:logout")}</Nav.Link>
                 </>
               ) : (
-                <Nav.Link  onClick={() => setShowModal(true)}>
+                <Nav.Link onClick={() => setShowModal(true)}>
                   {t("Nav:login_signup")}
                 </Nav.Link>
               )}
@@ -86,40 +87,7 @@ export default function AppNavbar({ onChangeLang }) {
           {/* <SearchBar /> */}
         </Container>
       </Navbar>
-      {/* set modal data up */}
-      <Modal
-        size='lg'
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'
-        style={{ background: "linear-gradient(to right, #232526, #414345)" }}
-      >
-        {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey='login'>
-          <Modal.Header closeButton>
-            <Modal.Title id='signup-modal'>
-              <Nav variant='pills'>
-                <Nav.Item >
-                  <Nav.Link eventKey='login'>{t("Nav:login")}</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey='signup'>{t("Nav:signup")}</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Tab.Content>
-              <Tab.Pane eventKey='login'>
-                <LoginForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-              <Tab.Pane eventKey='signup'>
-                <SignUpForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-            </Tab.Content>
-          </Modal.Body>
-        </Tab.Container>
-      </Modal>
+      <LoginModal setShowModal={setShowModal} showModal={showModal} />
     </>
   );
 }

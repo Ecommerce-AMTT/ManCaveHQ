@@ -7,12 +7,11 @@ import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
-import spinner from "../../assets/spinner.gif";
 import Loading from "../Loading";
 
 export default function ProductList() {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
+
     return state.translate;
   });
   const [state, dispatch] = useStoreContext();
@@ -51,7 +50,7 @@ export default function ProductList() {
   }
 
   return (
-    <Container>
+    <Container style={{ paddingLeft: "0px", paddingRight: "0px" }}>
       <h2 className='mt-4'>{t("Menu:our_products")}:</h2>
       {state.products.length ? (
         <div className='flex-row'>
@@ -63,6 +62,7 @@ export default function ProductList() {
               name={product.name}
               price={product.price}
               quantity={product.quantity}
+              reviews={product.reviews}
             />
           ))}
         </div>

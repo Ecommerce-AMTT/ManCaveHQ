@@ -12,7 +12,6 @@ export const translateSlice = createSlice({
   },
   reducers: {
     changeT: (state, action) => {
-      // console.log("changeT.t = ", action.payload);
       state.t = action.payload;
     },
     changeI18n: (state, action) => {

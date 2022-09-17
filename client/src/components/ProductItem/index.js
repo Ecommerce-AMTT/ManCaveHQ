@@ -1,21 +1,21 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useSelector } from "react-redux";
+import StarRatingDisabled from "../../pages/StarRatingDisabled";
 
 function ProductItem(item) {
   const { t } = useSelector((state) => {
-    // console.log("Contact.state ", state);
     return state.translate;
   });
 
   const [state, dispatch] = useStoreContext();
 
-  const { image, name, _id, price, quantity } = item;
+  const { image, name, _id, price, reviews } = item;
 
   const { cart } = state;
 
@@ -49,15 +49,21 @@ function ProductItem(item) {
           "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898",
       }}
     >
-
       <Link to={`/products/${_id}`}>
         <Card.Img alt={name} src={`/images/${image}`} />
         <Card.Text>{name}</Card.Text>
       </Link>
-      <div>
-        <div>
-          {quantity} {pluralize("item", quantity)} in stock
-        </div>
+      <div style={{ paddingLeft: 0, margin: "1rem 0" }}>
+        {reviews?.length > 0 ? (
+          <Link to={`/products/${_id}/reviews`}>
+            <StarRatingDisabled
+              starCount={5}
+              hoverIndex={reviews[0].currentRating}
+            ></StarRatingDisabled>
+          </Link>
+        ) : (
+          <StarRatingDisabled starCount={5} hoverIndex={0}></StarRatingDisabled>
+        )}
         <span>${price}</span>
       </div>
       <Button className='button-85' onClick={addToCart}>

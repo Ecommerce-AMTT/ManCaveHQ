@@ -12,6 +12,36 @@ export const QUERY_PRODUCTS = gql`
       category {
         _id
       }
+      reviews {
+        _id
+        currentRating
+        comment
+        createdAt
+        user
+      }
+    }
+  }
+`;
+
+export const QUERY_PRODUCT = gql`
+  query getProduct($id: ID!) {
+    product(_id: $id) {
+      _id
+      name
+      description
+      price
+      quantity
+      image
+      category {
+        _id
+      }
+      reviews {
+        _id
+        currentRating
+        comment
+        createdAt
+        user
+      }
     }
   }
 `;

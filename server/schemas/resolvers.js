@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Product, Category, Order } = require("../models");
+const Review = require("../models/Review");
 const { signToken } = require("../utils/auth");
 const sendmail = require("../utils/sendmail");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
@@ -113,12 +114,10 @@ const resolvers = {
     },
     addOrder: async (parent, { products }, context) => {
       try {
-        console.log("products@server: ", products);
         const product_ids = products.map((product) => product._id);
-        console.log("product_ids@server: ", product_ids);
+
         if (context.user) {
           const order = new Order({ products: product_ids });
-          console.log("order@server: ", order);
 
           await User.findByIdAndUpdate(context.user._id, {
             $push: { orders: order },
@@ -129,20 +128,18 @@ const resolvers = {
             `Your MerncaveHQ order ${order._id}`,
             `<p>
           <h2>Hello ${context.user.email.split("@")[0]}</h2>
-          <br>Thank you for shopping with us. We'll send a confirmation when your items have shipped
-          <br><H2>Details:</H2>
+          <br>Thank you for shopping with us. We'll send a confirmation when your items have shipped!
+          <br><h3>Details:</h3>
           <hr>
           <ul>
             ${products.map((product) => {
-              console.log("product_detail", product);
-
               return (
                 "<li>" +
                 product.quantity +
                 " units of " +
                 product.name +
                 " Total: " +
-                product.price +
+                product.price*product.quantity +
                 "</li>"
               );
             })}
@@ -193,6 +190,21 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    saveReview: async (parent, { _id, currentRating, comment }, context) => {
+      const review = new Review({
+        currentRating,
+        comment,
+        user: context.user._id,
+      }); // "6323781500df2d82ac0a9601"
+
+      const product = await Product.findByIdAndUpdate(_id, {
+        $push: {
+          reviews: review.toJSON(),
+        },
+      });
+
+      return product.populate("reviews");
     },
   },
 };
