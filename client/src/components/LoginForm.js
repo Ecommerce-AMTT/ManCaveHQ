@@ -69,7 +69,7 @@ const LoginForm = () => {
           show={showAlert}
           variant='danger'
         >
-          Something went wrong with your login credentials!
+          <p style={{marginTop : "10px"}}>Invalid login credentials!</p>
         </Alert>
 
         {/* login input field for email  */}

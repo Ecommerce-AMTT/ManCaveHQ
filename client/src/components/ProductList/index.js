@@ -7,7 +7,6 @@ import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
-import spinner from "../../assets/spinner.gif";
 import Loading from "../Loading";
 
 export default function ProductList() {
@@ -63,6 +62,7 @@ export default function ProductList() {
               name={product.name}
               price={product.price}
               quantity={product.quantity}
+              reviews={product.reviews}
             />
           ))}
         </div>

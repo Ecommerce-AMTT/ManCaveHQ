@@ -77,7 +77,7 @@ const SignupForm = () => {
           show={showAlert}
           variant='danger'
         >
-          {t("Signup:wrong_signup")}
+          <p style={{marginTop : "10px"}}>{t("Signup:wrong_signup")}</p>
         </Alert>
 
         <Form.Group>
