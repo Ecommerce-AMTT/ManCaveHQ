@@ -85,7 +85,7 @@ export default function OrderHistory() {
                           Shipped To:
                         </span>
                       </p>
-                      <p>{user.userName}</p>
+                      <p>152 Ohio St, Chicago, IL 60611</p>
                     </Col>
                   </Row>
                 </div>
