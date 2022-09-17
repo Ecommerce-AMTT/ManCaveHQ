@@ -24,7 +24,7 @@ export default function OrderHistory() {
         {/* Link to go back to the products page  */}
         <Link to='/products'>← Back to Products</Link>
         {user ? (
-          <Container style={{ padding: "0 1rem" }}>
+          <Container style={{ padding: "0 1rem", minWidth: "85%" }}>
             {/* <h2>Order History for {user.userName}</h2> */}
             {user.orders.map((order) => (
               <div key={order._id} className='my-2'>
