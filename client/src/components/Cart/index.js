@@ -109,9 +109,9 @@ const Cart = () => {
               {Auth.loggedIn() ? (
                 <button onClick={submitCheckout}>{t("Nav:checkout")}</button>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>
+                <button onClick={() => setShowModal(true)}>
                   {t("Nav:checkout")}
-                </Nav.Link>
+                </button>
                 // <span>(log in to check out)</span>
               )}
             </div>
