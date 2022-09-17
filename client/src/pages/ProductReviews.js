@@ -198,8 +198,9 @@ export default function ProductReviews() {
                   <Card id='ReviewOldCard'>
                     <Card.Header>
                       <StarRatingDisabled
-                        starCount={5}
                         hoverIndex={review.currentRating}
+                        starCount={5}
+                        cursor='not-allowed'
                       ></StarRatingDisabled>
                     </Card.Header>
                     <Card.Body>

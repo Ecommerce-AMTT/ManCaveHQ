@@ -16,7 +16,7 @@ function ProductItem(item) {
 
   const [state, dispatch] = useStoreContext();
 
-  const { image, name, _id, price } = item;
+  const { image, name, _id, price, reviews } = item;
 
   const { cart } = state;
 
@@ -55,9 +55,16 @@ function ProductItem(item) {
         <Card.Text>{name}</Card.Text>
       </Link>
       <div style={{ paddingLeft: 0, margin: "1rem 0" }}>
-        <Link to={`/products/${_id}/reviews`}>
-          <StarRatingDisabled starCount={5} hoverIndex={5}></StarRatingDisabled>
-        </Link>
+        {reviews?.length > 0 ? (
+          <Link to={`/products/${_id}/reviews`}>
+            <StarRatingDisabled
+              starCount={5}
+              hoverIndex={reviews[0].currentRating}
+            ></StarRatingDisabled>
+          </Link>
+        ) : (
+          <StarRatingDisabled starCount={5} hoverIndex={0}></StarRatingDisabled>
+        )}
         <span>${price}</span>
       </div>
       <Button className='button-85' onClick={addToCart}>

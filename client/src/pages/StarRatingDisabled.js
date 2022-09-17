@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function StarRatingDisabled({ hoverIndex, starCount }) {
+export default function StarRatingDisabled({ hoverIndex, starCount, cursor }) {
   return (
     <>
       {" "}
@@ -14,7 +14,7 @@ export default function StarRatingDisabled({ hoverIndex, starCount }) {
                 icon={faStar}
                 key={index}
                 style={{
-                  cursor: "pointer",
+                  cursor: { cursor },
                   padding: "0.1rem",
                   color: hoverIndex > index ? "orange" : "gray",
                   height: "2rem",
