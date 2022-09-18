@@ -25,10 +25,17 @@ Please just click on the below button to take you to the Heroku deployed app!
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://merncavehq.herokuapp.com/)
 
+<h2 align="center">Desktop View </h2>
 
-![MernCave HQ Homepage - Desktop View]()
-![MernCave HQ Homepage - Mobile View]()
-![MernCave HQ runthrough gif]()
+![MernCave HQ Homepage - Desktop View](https://raw.githubusercontent.com/Ecommerce-AMTT/ManCaveHQ/staging/client/public/assets/images/merncavehq-desktop.png)
+
+<h2 align="center">Mobile View </h2>
+
+![MernCave HQ Homepage - Mobile View](https://raw.githubusercontent.com/Ecommerce-AMTT/ManCaveHQ/staging/client/public/assets/images/merncavehq-mobile.png)
+
+<h2 align="center">Runthrough GIF </h2>
+
+![MernCave HQ runthrough gif](https://github.com/Ecommerce-AMTT/ManCaveHQ/blob/staging/client/public/assets/images/Merncave%20HQ%20(1).gif?raw=true)
 
 ## Contributors
  - Alberto Londono
