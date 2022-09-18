@@ -25,6 +25,11 @@ Please just click on the below button to take you to the Heroku deployed app!
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://merncavehq.herokuapp.com/)
 
+
+![MernCave HQ Homepage - Desktop View]()
+![MernCave HQ Homepage - Mobile View]()
+![MernCave HQ runthrough gif]()
+
 ## Contributors
  - Alberto Londono
  - Mason McCoy
